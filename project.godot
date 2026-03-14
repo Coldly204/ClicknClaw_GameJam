@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Click & Claw Game Jam"
-run/main_scene="uid://bccld0lmx3w27"
+run/main_scene="uid://duv07bfafokts"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ Global="uid://c1kasl0kpodx5"
 [display]
 
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="uid://dqf5qr2qiv00q"
 
 [input]
 

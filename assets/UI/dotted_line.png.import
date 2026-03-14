@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doserbbmdid3x"
-path="res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"
+uid="uid://1xnl7by5mulk"
+path="res://.godot/imported/dotted_line.png-bf26f306b451e0f21a4a60f4472a5b0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/entity/player/OIP.png"
-dest_files=["res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"]
+source_file="res://assets/UI/dotted_line.png"
+dest_files=["res://.godot/imported/dotted_line.png-bf26f306b451e0f21a4a60f4472a5b0a.ctex"]
 
 [params]
 

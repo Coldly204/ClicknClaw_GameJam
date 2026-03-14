@@ -13,7 +13,7 @@ var next_pos:
 		
 var vine_progress:
 	get():
-		return map_pos.y/(vines_list[0].map_pos.y - vines_list[-1].map_pos.y)
+		return abs(float(map_pos.y-vines_list[0].map_pos.y) / float(vines_list[0].map_pos.y - vines_list[-1].map_pos.y))
 
 func set_texture(texture:Texture2D):
 	sprite.texture = texture

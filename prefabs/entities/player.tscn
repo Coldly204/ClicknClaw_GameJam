@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://csb751bl4k57u"]
 
-[ext_resource type="Script" uid="uid://b7dnn5jmpyds7" path="res://prefabs/Entity/Player/player.gd" id="1_yqc4m"]
-[ext_resource type="Shader" uid="uid://di41if4rit5c7" path="res://prefabs/Entity/Player/player.gdshader" id="2_xap6g"]
-[ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_boor0"]
-[ext_resource type="Script" path="res://prefabs/entity/player/interaction_area.gd" id="4_boor0"]
-[ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://assets/UI/dotted_line.png" id="5_nqwxj"]
+[ext_resource type="Script" uid="uid://bw2dtgnyr2um0" path="res://scripts/player/player.gd" id="1_j0cl5"]
+[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qpvj0"]
+[ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_2tsmg"]
+[ext_resource type="Script" uid="uid://b2iggtnwc8ve6" path="res://scripts/player/interaction_area.gd" id="4_ohfey"]
+[ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://assets/UI/dotted_line.png" id="5_ss567"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xap6g"]
 resource_local_to_scene = true
-shader = ExtResource("2_xap6g")
+shader = ExtResource("2_qpvj0")
 shader_parameter/pivot = Vector2(0, -8)
 shader_parameter/speed = 3.0
 shader_parameter/bounce_amount = 5.0000002375
@@ -19,11 +19,11 @@ shader_parameter/type = 1
 shader_parameter/thickness = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83v73"]
-atlas = ExtResource("3_boor0")
+atlas = ExtResource("3_2tsmg")
 region = Rect2(0, 288, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boor0"]
-atlas = ExtResource("3_boor0")
+atlas = ExtResource("3_2tsmg")
 region = Rect2(0, 36, 16, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qovm"]
@@ -56,7 +56,7 @@ radius = 18.001736
 scale = Vector2(4, 4)
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_yqc4m")
+script = ExtResource("1_j0cl5")
 sprite = NodePath("Sprite")
 interaction = NodePath("InteractionArea")
 collision_shape = NodePath("CollisionShape2D")
@@ -80,7 +80,7 @@ shape = SubResource("CapsuleShape2D_jtvp5")
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master")]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_boor0")
+script = ExtResource("4_ohfey")
 master = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=957231326]
@@ -91,5 +91,5 @@ debug_color = Color(0.9460127, 5.968213e-06, 0.592087, 0.41960785)
 [node name="Line2D" type="Line2D" parent="." unique_id=265342237]
 points = PackedVector2Array(0, -16, 64, 0)
 width = 2.0
-texture = ExtResource("5_nqwxj")
+texture = ExtResource("5_ss567")
 texture_mode = 2

@@ -7,6 +7,9 @@
 [sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
 tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
+tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
+
 [sub_resource type="TileMapPattern" id="TileMapPattern_vgpmu"]
 tile_data = PackedInt32Array(0, 196611, 0, 65536, 3, 1, 131072, 3, 1, 196608, 3, 1, 262144, 3, 1, 327680, 3, 2, 1, 262147, 0, 65537, 65539, 1, 131073, 65539, 1, 196609, 65539, 1, 262145, 65539, 1, 327681, 65539, 2)
 
@@ -217,7 +220,6 @@ texture = ExtResource("2_81yw3")
 1:2/0 = 0
 1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
-4:2/0 = 0
 5:2/0 = 0
 5:1/0 = 0
 4:1/0 = 0
@@ -225,6 +227,18 @@ texture = ExtResource("2_81yw3")
 3:0/0 = 0
 5:0/0 = 0
 4:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+4:2/0 = 0
+0:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

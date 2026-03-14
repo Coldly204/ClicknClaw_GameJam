@@ -28,7 +28,7 @@ tile_map_data = PackedByteArray("AAAYAPX/AwAGAAAAAAAaAPX/AwAFAAAAAAAeAPX/AwAFAAE
 tile_set = ExtResource("1_uwrxv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1443630775]
-position = Vector2(662, -50)
+position = Vector2(432, -48)
 texture = ExtResource("3_lnu2h")
 region_enabled = true
 region_rect = Rect2(32, 64, 16, 32)

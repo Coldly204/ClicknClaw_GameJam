@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends CharacterBody2D
 class_name Entity
 
 @export_category("Attribute")

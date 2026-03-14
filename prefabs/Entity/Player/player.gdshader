@@ -1,4 +1,4 @@
-shader_type spatial;
+shader_type canvas_item;
 
 uniform vec2 pivot = vec2(0,0);
 uniform float speed : hint_range(0.5, 5.0) = 3.0;
@@ -9,9 +9,6 @@ uniform float move_tick : hint_range(-1.0,1.0) = 0;
 uniform vec4 clr : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform int type : hint_enum("Disable", "Round", "Square") = 2;
 uniform float thickness = 1.0;
-
-uniform sampler2D Texture;
-
 
 const vec2[8] DIRECTIONS = {
 	vec2(1.0, 0.0),
@@ -45,7 +42,7 @@ void vertex() {
 	VERTEX.x *= scale_x;
 	VERTEX.y *= scale_y;
 	
-	float bounce_offset = abs(cos(time_phase * 2.0)) * bounce_amount * 0.01;
+	float bounce_offset = abs(cos(time_phase * 2.0)) * bounce_amount - 6.0;
 	VERTEX.y -= bounce_offset * move_tick; 
 	
 	float drag = sin(time_phase);
@@ -61,7 +58,6 @@ void vertex() {
 	}
 
 void fragment() {
-	ALBEDO = texture(Texture,UV).rgb;
-	//COLOR = mix( COLOR, clr, check(TEXTURE, UV, TEXTURE_PIXEL_SIZE) * (1.0 - gtz(COLOR.a)) );
+	COLOR = mix( COLOR, clr, check(TEXTURE, UV, TEXTURE_PIXEL_SIZE) * (1.0 - gtz(COLOR.a)) );
 }
 

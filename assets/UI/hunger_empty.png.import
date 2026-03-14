@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doserbbmdid3x"
-path="res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"
+uid="uid://btd5i1hwe2jxu"
+path="res://.godot/imported/hunger_empty.png-41be4e5d76799b7a49c1e9cbd87d08dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/entity/player/OIP.png"
-dest_files=["res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"]
+source_file="res://assets/UI/hunger_empty.png"
+dest_files=["res://.godot/imported/hunger_empty.png-41be4e5d76799b7a49c1e9cbd87d08dd.ctex"]
 
 [params]
 

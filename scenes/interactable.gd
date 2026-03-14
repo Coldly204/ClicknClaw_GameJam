@@ -23,7 +23,10 @@ func form_interactable():
 		
 		if new_object is Vines:
 			if len(vines) == 0:
-				vines.push_back([new_object])
+				var new_vines = [new_object]
+				vines.push_back(new_vines)
+				new_object.vines_list = new_vines
+				
 			else:
 				var pushed = false
 				for j in vines:
@@ -41,9 +44,6 @@ func form_interactable():
 					
 	for i in vines:
 		i.sort_custom(func(a,b): return a.map_pos.y > b.map_pos.y)
-		
-	
-		
 		
 func is_cell_connected(cells:Array,pos:Vector2i,dires:Array):
 	for i in cells:

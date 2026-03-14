@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bsndofi5rxl7f" path="res://assets/tilemap/Tiles/Tiles.png" id="1_qp2yk"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_81yw3"]
-[ext_resource type="PackedScene" uid="uid://b80v4cunbce88" path="res://prefabs/Interactable/vines.tscn" id="2_vgpmu"]
+[ext_resource type="PackedScene" uid="uid://b80v4cunbce88" path="res://prefabs/interactable/vines.tscn" id="2_vgpmu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
 tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
@@ -210,7 +210,6 @@ texture = ExtResource("2_81yw3")
 2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:1/0/custom_data_0 = ExtResource("2_vgpmu")
 2:1/0 = 0
 2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
@@ -221,6 +220,7 @@ texture = ExtResource("2_81yw3")
 5:1/0 = 0
 4:1/0 = 0
 3:1/0 = 0
+3:1/0/custom_data_0 = ExtResource("2_vgpmu")
 3:0/0 = 0
 5:0/0 = 0
 4:0/0 = 0

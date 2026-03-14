@@ -11,20 +11,18 @@ var climbing_progress:float
 @export var sprite:AnimatedSprite2D
 @export var interaction : Area2D
 @export var collision_shape:CollisionShape2D
+@export var item:String = "Stone"
+@export var dotted_line:Line2D
 
 @onready var shader_material = sprite.material
 
-func _ready() -> void:
-	pass
+var using_itme:bool = false
+var mouse_pos:Vector2
 	
 
 func _physics_process(delta: float) -> void:
 	motion_process(delta)
 	
-	
-
-
-
 func motion_process(_delta:float):
 	var motion : Vector2 = Input.get_vector("left","right","up","down")
 	if climbing:
@@ -53,4 +51,64 @@ func motion_process(_delta:float):
 		shader_material.set_shader_parameter("move_tick", shader_move_tick)
 		shader_material.set_shader_parameter("speed", move_speed * 3.0)
 		
+	if item:
+		if Input.is_action_pressed("cancel_use"):
+			dotted_line.visible = false
+			using_itme = false
+		elif Input.is_action_pressed("use_item"):
+			using_itme = true
+			if item == "Stone":
+				dotted_line.visible = true
+				mouse_pos = get_local_mouse_position()
+				dotted_line.clear_points()
+				var points = predict_trajectory(Vector2(0,-16),mouse_pos.normalized()*480,80,_delta)
+				for i in points:
+					dotted_line.add_point(i)
+		else:
+			dotted_line.visible = false
+			if using_itme:
+				if item == "Stone":
+					var new_stone = load("res://prefabs/items/stone.tscn").instantiate()
+					new_stone.velocity = mouse_pos.normalized()*480
+					new_stone.global_position = global_position - Vector2(0,16)
+					Global.scene.add_child(new_stone)
+				using_itme = false
+					
+		
 	move_and_slide()
+	
+func bezier(start:Vector2,end:Vector2,t:float):
+	var dire = (end - start).normalized()
+	var mid_point = (end + start)/2
+	
+	mid_point.y -= 10000/clamp(start.distance_to(end),60,99999)
+
+	return (1-t)**2*start + 2*(1-t)*t*mid_point + (t**2)*end
+	
+func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, step_time: float) -> PackedVector2Array:
+	var points = PackedVector2Array()
+	points.append(initial_pos) # 将起点加入数组
+
+	var pos = initial_pos
+	var vel = initial_vel
+
+	for i in range(steps):
+		vel.y += 960 * step_time
+		# 更新位置
+		var next_pos = pos + vel * step_time
+		pos = next_pos
+		
+		var query:PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+
+		
+		query.position = global_position + next_pos
+		query.collision_mask = 1
+		
+		var results = get_world_2d().direct_space_state.intersect_point(query)
+		points.append(next_pos)
+		if results != []:
+			break
+
+
+		
+	return points

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b80v4cunbce88"]
 
-[ext_resource type="Script" uid="uid://dtrumoxjkv64d" path="res://prefabs/Interactable/vines.gd" id="1_e616j"]
+[ext_resource type="Script" uid="uid://dtrumoxjkv64d" path="res://prefabs/interactable/vines.gd" id="1_e616j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e616j"]
 size = Vector2(16, 16)

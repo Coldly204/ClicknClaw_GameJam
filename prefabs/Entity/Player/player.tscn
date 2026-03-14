@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dp6st4v5vyffi"]
 
-[ext_resource type="Script" uid="uid://tdtgcfdgaco5" path="res://prefabs/Entity/Player/player.gd" id="1_yqc4m"]
-[ext_resource type="Shader" uid="uid://di41if4rit5c7" path="res://prefabs/Entity/Player/player.gdshader" id="2_xap6g"]
+[ext_resource type="Script" path="res://prefabs/entity/player/player.gd" id="1_kqotc"]
+[ext_resource type="Shader" uid="uid://di41if4rit5c7" path="res://prefabs/entity/player/player.gdshader" id="2_xap6g"]
 [ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_boor0"]
-[ext_resource type="Script" uid="uid://cuvapmxabxvyw" path="res://prefabs/Entity/Player/interaction_area.gd" id="4_boor0"]
+[ext_resource type="Script" uid="uid://cuvapmxabxvyw" path="res://prefabs/entity/player/interaction_area.gd" id="3_j1nip"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xap6g"]
 shader = ExtResource("2_xap6g")
@@ -52,11 +52,11 @@ radius = 18.001736
 
 [node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "interaction", "collision_shape")]
 scale = Vector2(4, 4)
-script = ExtResource("1_yqc4m")
+script = ExtResource("1_kqotc")
 sprite = NodePath("Sprite")
 interaction = NodePath("InteractionArea")
 collision_shape = NodePath("CollisionShape2D")
-move_speed = 2.0
+move_speed = 1.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1242458710]
 texture_filter = 3
@@ -71,7 +71,7 @@ shape = SubResource("CapsuleShape2D_jtvp5")
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master")]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_boor0")
+script = ExtResource("3_j1nip")
 master = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=957231326]

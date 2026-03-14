@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b2r5dkwcpmkcs" path="res://scripts/rabbit/rabbit.gd" id="1_rdgxo"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
+[ext_resource type="Script" uid="uid://fhubotd6tstg" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
 [ext_resource type="Script" uid="uid://clgt2vaixhdns" path="res://scripts/rabbit/states/idle.gd" id="4_sg1ma"]
-[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/rabbit/states/run.gd" id="5_dup2t"]
+[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/rabbit/states/flee.gd" id="5_dup2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sd3u"]
 
@@ -22,7 +22,9 @@ shader_parameter/thickness = 1.0
 
 [node name="Rabbit" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "collision", "state_machine") groups=["Entity"]]
 script = ExtResource("1_rdgxo")
-hositility_type = 0
+default_enmity_values = Dictionary[int, float]({
+0: 1.0
+})
 appearance = NodePath("Appearance")
 collision = NodePath("CollisionShape2D")
 state_machine = NodePath("StateMachine")
@@ -44,13 +46,12 @@ offset_right = 25.0
 offset_bottom = 4.0
 text = "Rabbit"
 
-[node name="StateMachine" type="Node" parent="." unique_id=2060191624 node_paths=PackedStringArray("init_state", "master")]
+[node name="StateMachine" type="Node" parent="." unique_id=2060191624 node_paths=PackedStringArray("master")]
 script = ExtResource("3_6sd3u")
-init_state = NodePath("idle")
 master = NodePath("..")
 
 [node name="idle" type="Node" parent="StateMachine" unique_id=1312221324]
 script = ExtResource("4_sg1ma")
 
-[node name="run" type="Node" parent="StateMachine" unique_id=1465889719]
+[node name="flee" type="Node" parent="StateMachine" unique_id=1465889719]
 script = ExtResource("5_dup2t")

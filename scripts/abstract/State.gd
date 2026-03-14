@@ -2,8 +2,18 @@ extends Node
 class_name State
 
 var master:Creature
+var type: StateType
+
+enum StateType {
+	IDLE,
+	FLEE,
+	CHASE,
+	HIDE,
+}
 
 signal transitioned
+
+
 
 func on_enter(data_transfer = {}):
 	pass

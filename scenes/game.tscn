@@ -36,8 +36,8 @@ tile_map_data = PackedByteArray("AAAUAPb/AwADAAEAAAAUAPf/AwADAAEAAAAUAPj/AwADAAE
 tile_set = ExtResource("1_uwrxv")
 script = ExtResource("3_lbhrr")
 
-[node name="Player" parent="." unique_id=533130759 instance=ExtResource("3_lnu2h")]
-position = Vector2(46, -36)
+[node name="Player" parent="." unique_id=533130759 groups=["Player"] instance=ExtResource("3_lnu2h")]
+position = Vector2(458, -38)
 scale = Vector2(1, 1)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]

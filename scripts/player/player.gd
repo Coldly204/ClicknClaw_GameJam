@@ -19,6 +19,9 @@ var climbing_progress: float
 var using_item: bool = false
 var mouse_pos: Vector2
 	
+func _ready() -> void:
+	add_to_group("Player",true)
+
 func _physics_process(delta: float) -> void:
 	motion_process(delta)
 	

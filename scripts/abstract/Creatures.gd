@@ -1,7 +1,25 @@
 extends Entity
 class_name Creature
 
-@export_enum("Harmless","Hostile","Neutral") var hositility_type
+@export var _current_relationships: Dictionary[EntityType, RelationshipType]
+@export var _current_enmity_values: Dictionary[EntityType, float]
+
+enum RelationshipType {
+	HOSTILE,
+	NEUTRAL,
+	FRIENDLY
+}
+
+
+@export_category("Relationships")
+#If the enmity of another entity increases past this, this entity is hostile to it
+@export var threshold_till_hostile = 0.8
+#Default enmity value, if unspecified
+@export var base_enmity = 0.5
+#If the enmity of another entity goes below this, this entity is friendly to it
+@export var threshold_till_friendly = 0.3
+@export var default_enmity_values: Dictionary[EntityType, float]
+
 @export_category("Components")
 @export var appearance:Node2D
 @export var collision:CollisionShape2D
@@ -11,7 +29,15 @@ class_name Creature
 
 var shader_move_tick:float = 0
 
-
+func _ready() -> void:
+	super._ready()
+	_current_enmity_values = default_enmity_values.duplicate()
+	for entity_type in EntityType.values():
+		if !_current_enmity_values.get(entity_type):
+			_current_enmity_values[entity_type] = base_enmity
+	for entity_type in _current_enmity_values.keys():
+		_current_relationships[entity_type] = RelationshipType.NEUTRAL
+		update_relationship_with(entity_type)
 
 func move(motion:Vector2,_delta:float):
 	velocity.x += motion.x * _delta * 420 * move_speed
@@ -20,3 +46,36 @@ func move(motion:Vector2,_delta:float):
 	if shader_material:
 		shader_material.set_shader_parameter("move_tick", shader_move_tick)
 		shader_material.set_shader_parameter("speed", move_speed * 3.0)
+
+func set_enmity(creature_type: EntityType, new_enmity: float):
+	_current_enmity_values[creature_type] = clampf(new_enmity,0,1)
+	update_relationship_with(creature_type)
+
+func update_relationship_with(creature_type: EntityType):
+	var enmity = _current_enmity_values[creature_type]
+	if enmity >= threshold_till_hostile:
+		_current_relationships[creature_type] = RelationshipType.HOSTILE
+	elif enmity <= threshold_till_friendly:
+		_current_relationships[creature_type] = RelationshipType.FRIENDLY
+	else:
+		_current_relationships[creature_type] = RelationshipType.NEUTRAL
+
+func get_relationship_with(creature_type: EntityType):
+	return _current_relationships[creature_type]
+
+func is_hostile_to(creature_type: EntityType) -> bool:
+	return _current_relationships[creature_type] == RelationshipType.HOSTILE
+
+func hostile_nearby(detect_range: float) -> bool:
+	var nearest_entity = get_nearest_entity(detect_range)
+	if nearest_entity:
+		if get_relationship_with(nearest_entity.type) == RelationshipType.HOSTILE:
+			return true
+	return false
+
+
+func is_friendly_to(creature_type: EntityType) -> bool:
+	return _current_relationships[creature_type] == RelationshipType.FRIENDLY
+
+func is_neutral_to(creature_type: EntityType) -> bool:
+	return _current_relationships[creature_type] == RelationshipType.NEUTRAL

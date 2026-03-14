@@ -12,5 +12,11 @@ func on_exit():
 
 func update(delta):
 	master.move(Vector2.ZERO,delta)
-	if master.is_player_near(detect_range):
-		transitioned.emit(self,"run")
+	var nearest_entity = master.get_nearest_entity(detect_range)
+	print(nearest_entity)
+	if master.hostile_nearby(detect_range):
+		#If it detects a hostile entity (player or creature), chase (if state exists (predator-type)) or flee (prey-type)
+		if master.state_machine.has_state(StateType.CHASE):
+			transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
+		elif master.state_machine.has_state(StateType.FLEE):
+			transitioned.emit(self,StateType.FLEE, {"target": nearest_entity})

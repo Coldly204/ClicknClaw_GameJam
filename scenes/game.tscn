@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bccld0lmx3w27"]
+
+[node name="Game" type="Node3D" unique_id=305919619]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1510767435]
+projection = 1

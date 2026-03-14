@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://doserbbmdid3x"
-path="res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"
+path="res://.godot/imported/OIP.png-6b9787ae3ed1d93ff7bda81d5654f286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/entity/player/OIP.png"
-dest_files=["res://.godot/imported/OIP.png-1902379b245de4f0bdaed327ec8366ba.ctex"]
+source_file="res://prefabs/Entity/Player/OIP.png"
+dest_files=["res://.godot/imported/OIP.png-6b9787ae3ed1d93ff7bda81d5654f286.ctex"]
 
 [params]
 

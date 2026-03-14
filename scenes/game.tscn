@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://47g6fnnr6m8i" path="res://resources/tileset.tres" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="1_yqjtg"]
-[ext_resource type="Script" path="res://scenes/interactable.gd" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://dp6st4v5vyffi" path="res://prefabs/entity/player/player.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://d0sv2b1qdhfg4" path="res://scenes/interactable.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entity/player/player.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=2082310208]
 
@@ -32,7 +32,7 @@ metadata/_edit_lock_ = true
 tile_map_data = PackedByteArray("AAAYAPX/AwAGAAAAAAAaAPX/AwAFAAAAAAAeAPX/AwAFAAEAAAAfAPX/AwAHAAIAAAAgAPX/AwAEAAAAAAApAP3/AwAFAAEAAAAwANb/AwAEAAIAAAA5ANb/AwAHAAIAAAA8ANb/AwAFAAAAAAA9ANb/AwAFAAAAAABAANb/AwAFAAEAAABCANb/AwAFAAEAAAA+AMj/AwAFAAAAAAADAP3/AwAGAAEAAAAHAP3/AwAHAAAAAAAIAP3/AwAHAAIAAAAYAP3/AwAHAAIAAAAZAP3/AwAFAAIAAAAeAP3/AwAGAAAAAAAVAPX/AwAGAAEAAAAmAP3/AwAHAAAAAAAoAP3/AwAFAAIAAAAqAP3/AwAFAAEAAAAuANb/AwAGAAAAAAAzANb/AwAGAAIAAAA1ANb/AwAHAAIAAAA+ANb/AwAGAAAAAABBAMj/AwAGAAAAAAAFAPj/AwADAAAAAAAFAPn/AwAAAAEAAAAFAPr/AwAAAAEAAAAFAPv/AwAAAAEAAAAFAPz/AwAAAAEAAAAFAP3/AwAAAAIAAAAGAPj/AwAEAAAAAAAGAPn/AwABAAEAAAAGAPr/AwABAAEAAAAGAPv/AwABAAEAAAAGAPz/AwABAAEAAAAGAP3/AwABAAIAAAA=")
 tile_set = ExtResource("1_uwrxv")
 
-[node name="Interactable" type="TileMapLayer" parent="." unique_id=1642713690]
+[node name="Interactable2" type="TileMapLayer" parent="." unique_id=92727790]
 tile_map_data = PackedByteArray("AAAbAPj/AwABAAEAAAAbAPn/AwABAAEAAAAbAPr/AwABAAEAAAAbAPv/AwABAAEAAAAbAPz/AwABAAEAAAAbAP3/AwABAAEAAAAbAPf/AwABAAEAAAAbAPb/AwABAAEAAAAbAPX/AwABAAEAAAAbAPT/AwABAAEAAAA=")
 tile_set = ExtResource("1_uwrxv")
 script = ExtResource("3_lbhrr")

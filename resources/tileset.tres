@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bsndofi5rxl7f" path="res://assets/tilemap/Tiles/Tiles.png" id="1_qp2yk"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_81yw3"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
+tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
+
 [sub_resource type="TileMapPattern" id="TileMapPattern_vgpmu"]
-tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 65537, 65539, 1, 131073, 65539, 2, 2, 131075, 0, 65538, 131075, 1)
+tile_data = PackedInt32Array(0, 196611, 0, 65536, 3, 1, 131072, 3, 1, 196608, 3, 1, 262144, 3, 1, 327680, 3, 2, 1, 262147, 0, 65537, 65539, 1, 131073, 65539, 1, 196609, 65539, 1, 262145, 65539, 1, 327681, 65539, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81yw3"]
 texture = ExtResource("1_qp2yk")
@@ -168,13 +171,10 @@ texture = ExtResource("1_qp2yk")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5o2m"]
 texture = ExtResource("2_81yw3")
 1:0/0 = 0
-2:0/0 = 0
 1:1/0 = 0
-2:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 3:2/0 = 0
-4:2/0 = 0
 5:2/0 = 0
 5:1/0 = 0
 4:1/0 = 0
@@ -182,6 +182,18 @@ texture = ExtResource("2_81yw3")
 3:0/0 = 0
 5:0/0 = 0
 4:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+4:2/0 = 0
+0:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
 
 [resource]
 terrain_set_0/mode = 0
@@ -191,4 +203,5 @@ terrain_set_0/terrain_1/name = "Border"
 terrain_set_0/terrain_1/color = Color(0.94251084, 0.90781647, 0.80479085, 1)
 sources/2 = SubResource("TileSetAtlasSource_81yw3")
 sources/3 = SubResource("TileSetAtlasSource_e5o2m")
-pattern_0 = SubResource("TileMapPattern_vgpmu")
+pattern_0 = SubResource("TileMapPattern_81yw3")
+pattern_1 = SubResource("TileMapPattern_vgpmu")

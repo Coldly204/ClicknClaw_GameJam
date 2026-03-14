@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bnd6tks1gduyh" path="res://scripts/player/player_info.gd" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://assets/UI/hunger_full.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="8_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bitminjpp6yms" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
@@ -41,7 +42,7 @@ position = Vector2(458, -38)
 scale = Vector2(1, 1)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
-position = Vector2(231, -39)
+position = Vector2(271, -37)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288043993]
 
@@ -109,3 +110,6 @@ text = "Item placeholder"
 [node name="Label2" type="Label" parent="CanvasLayer/PlayerInfo/VBoxContainer/TextureRect/HBoxContainer" unique_id=1188560164]
 layout_mode = 2
 text = "Item"
+
+[node name="Wolf" parent="." unique_id=913260208 instance=ExtResource("9_0tnpc")]
+position = Vector2(48, -35)

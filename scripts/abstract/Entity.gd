@@ -10,7 +10,8 @@ class_name Entity
 
 enum EntityType {
 	PLAYER,
-	RABBIT
+	RABBIT,
+	WOLF,
 }
 
 @export_category("In-game Attribute")

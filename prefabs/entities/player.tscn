@@ -52,13 +52,12 @@ height = 46.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_83v73"]
 radius = 18.001736
 
-[node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "interaction", "collision_shape", "dotted_line") groups=["Entity"]]
+[node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "collision_shape", "dotted_line") groups=["Entity"]]
 scale = Vector2(4, 4)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_j0cl5")
 sprite = NodePath("Sprite")
-interaction = NodePath("InteractionArea")
 collision_shape = NodePath("CollisionShape2D")
 dotted_line = NodePath("Line2D")
 max_health = 3
@@ -89,7 +88,7 @@ shape = SubResource("CircleShape2D_83v73")
 debug_color = Color(0.9460127, 5.968213e-06, 0.592087, 0.41960785)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=265342237]
-points = PackedVector2Array(0, -16, 64, 0)
+points = PackedVector2Array(0, -16, 37.572197, -6.6069565, 64, 0)
 width = 2.0
 texture = ExtResource("5_ss567")
 texture_mode = 2

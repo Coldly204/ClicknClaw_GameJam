@@ -3,10 +3,9 @@
 [ext_resource type="TileSet" uid="uid://47g6fnnr6m8i" path="res://resources/tileset.tres" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="1_yqjtg"]
 
-[node name="Game" type="Node3D" unique_id=305919619]
+[node name="Game" type="Node2D" unique_id=2082310208]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1510767435]
-projection = 1
+[node name="Camera2D" type="Node2D" parent="." unique_id=1349929097]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693162686]
 visible = false

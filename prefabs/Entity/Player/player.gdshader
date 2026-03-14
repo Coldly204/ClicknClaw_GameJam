@@ -42,7 +42,7 @@ void vertex() {
 	VERTEX.x *= scale_x;
 	VERTEX.y *= scale_y;
 	
-	float bounce_offset = abs(cos(time_phase * 2.0)) * bounce_amount - 6.0;
+	float bounce_offset = abs(cos(time_phase * 2.0)) * bounce_amount-3.0;
 	VERTEX.y -= bounce_offset * move_tick; 
 	
 	float drag = sin(time_phase);

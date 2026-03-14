@@ -2,10 +2,16 @@
 
 [ext_resource type="TileSet" uid="uid://47g6fnnr6m8i" path="res://resources/tileset.tres" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://d0sv2b1qdhfg4" path="res://scenes/interactable.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dp6st4v5vyffi" path="res://prefabs/Entity/Player/player.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=2082310208]
 
 [node name="Camera2D" type="Node2D" parent="." unique_id=1349929097]
+
+[node name="Camera2D" type="Camera2D" parent="Camera2D" unique_id=1657630754]
+position = Vector2(256, -128)
+zoom = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693162686]
 visible = false
@@ -21,5 +27,10 @@ tile_set = ExtResource("1_uwrxv")
 tile_set = ExtResource("1_uwrxv")
 
 [node name="Interactable" type="TileMapLayer" parent="." unique_id=1642713690]
-tile_map_data = PackedByteArray("AAAbAPf/AwABAAEAAAAbAPj/AwABAAEAAAAbAPn/AwABAAEAAAAbAPr/AwABAAEAAAAbAPv/AwABAAEAAAAbAPz/AwABAAEAAAAcAPf/AwABAAEAAAAcAPj/AwABAAEAAAAcAPn/AwABAAEAAAAcAPr/AwABAAEAAAAcAPv/AwABAAEAAAAcAPz/AwABAAEAAAAcAP3/AwABAAIAAAAbAPb/AwABAAEAAAAbAP3/AwABAAIAAAAcAPb/AwABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAbAPj/AwABAAEAAAAbAPn/AwABAAEAAAAbAPr/AwABAAEAAAAbAPv/AwABAAEAAAAbAPz/AwABAAEAAAAbAP3/AwABAAEAAAAbAPf/AwABAAEAAAAbAPb/AwABAAEAAAAbAPX/AwABAAEAAAAbAPT/AwABAAEAAAA=")
 tile_set = ExtResource("1_uwrxv")
+script = ExtResource("3_lbhrr")
+
+[node name="Player" parent="." unique_id=533130759 instance=ExtResource("3_lnu2h")]
+position = Vector2(46, -36)
+scale = Vector2(1, 1)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b80v4cunbce88"]
+
+[ext_resource type="Script" uid="uid://dtrumoxjkv64d" path="res://prefabs/Interactable/vines.gd" id="1_e616j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e616j"]
+size = Vector2(16, 16)
+
+[node name="Vines" type="Area2D" unique_id=474811504 node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_e616j")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1118134620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273457803]
+shape = SubResource("RectangleShape2D_e616j")

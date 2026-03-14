@@ -24,7 +24,7 @@ func update_hunger():
 				hunger.texture = load("res://assets/UI/hunger_empty.png")
 
 func update_item():
-	item_label.text = player.item
+	item_label.text = player.held_item
 				
 func _physics_process(delta: float) -> void:
 	update_hunger()

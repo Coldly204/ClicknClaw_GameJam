@@ -1,7 +1,7 @@
 extends Entity
 class_name Creature
 
-@export_enum("Harmless","Hositile","Neutral") var hositility_type
+@export_enum("Harmless","Hostile","Neutral") var hositility_type
 @export_category("Components")
 @export var appearance:Node2D
 @export var collision:CollisionShape2D

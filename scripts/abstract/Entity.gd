@@ -18,7 +18,7 @@ func get_predator(dist:float):
 	var entities = get_tree().get_nodes_in_group("Entity")
 	for i in entities:
 		if i is Creature:
-			if i.hositility_type == "Hositile":
+			if i.hositility_type == "Hostile":
 				var distance = i.global_position.distance_to(global_position)
 				if distance <= dist:
 					return i

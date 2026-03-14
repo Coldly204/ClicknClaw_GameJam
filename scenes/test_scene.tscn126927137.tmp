@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dmx3hdlmtestm"]
+
+[ext_resource type="PackedScene" uid="uid://dp6st4v5vyffi" path="res://prefabs/Entity/Player/player.tscn" id="1_g7g4h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j8ivh"]
+size = Vector3(9, 0.5, 9)
+
+[node name="Test_Scene" type="Node3D" unique_id=1788222603]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=152565142]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1894377259]
+shape = SubResource("BoxShape3D_j8ivh")
+
+[node name="Player" parent="." unique_id=1817443418 instance=ExtResource("1_g7g4h")]
+position = Vector2(0, 1.3639159)
+scale = Vector2(1, 1)
+max_health = null
+max_hunger = null
+current_health = null
+current_hunger = null
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2053692216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8172089, 8.612871)
+projection = 1
+size = 6.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1898370078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8206053, 2.37683)
+omni_range = 7.011912
+omni_attenuation = -0.418

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cq3y6hmtpchwc"]
 
 [ext_resource type="Script" uid="uid://b2r5dkwcpmkcs" path="res://scripts/rabbit/rabbit.gd" id="1_rdgxo"]
-[ext_resource type="Shader" uid="uid://di41if4rit5c7" path="res://prefabs/entity/player/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" uid="uid://fhubotd6tstg" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
+[ext_resource type="Shader" uid="uid://di41if4rit5c7" path="res://prefabs/Entity/Player/player.gdshader" id="2_fpn3a"]
+[ext_resource type="Script" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
 [ext_resource type="Script" uid="uid://clgt2vaixhdns" path="res://scripts/rabbit/states/idle.gd" id="4_sg1ma"]
-[ext_resource type="Script" uid="uid://xp2xdwjn7tsp" path="res://prefabs/entity/rabbit/run.gd" id="5_rw0uf"]
+[ext_resource type="Script" uid="uid://xp2xdwjn7tsp" path="res://prefabs/Entity/rabbit/run.gd" id="5_rw0uf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sd3u"]
 

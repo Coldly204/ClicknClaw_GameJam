@@ -1,5 +1,5 @@
 extends Area2D
-class_name InteractionArea
+#class_name InteractionArea
 
 @export var master:Player
 

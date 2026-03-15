@@ -1,4 +1,4 @@
-extends InteractObject
+extends InteractableObject
 class_name PickableItem
 
 var item_name:String = ""

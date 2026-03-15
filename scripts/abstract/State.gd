@@ -1,7 +1,7 @@
 extends Node
 class_name State
 
-var master:Creature
+var master: Creature
 var type: StateType
 
 enum StateType {

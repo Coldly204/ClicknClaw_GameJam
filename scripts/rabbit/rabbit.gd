@@ -7,7 +7,6 @@ func other_process(delta:float):
 	
 func interact(player:Player):
 	if current_health<=0:
-		
 		if player.held_item == "":
 			player.held_item = "Meat"
 		else:

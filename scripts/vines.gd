@@ -1,4 +1,4 @@
-extends InteractObject
+extends InteractableObject
 class_name Vines
 
 var vines_list:Array

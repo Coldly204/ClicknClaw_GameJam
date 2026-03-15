@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bitminjpp6yms"]
+[gd_scene format=3 uid="uid://dnrqc28riycys"]
 
 [ext_resource type="Script" uid="uid://srtywntolyx6" path="res://scripts/wolf/wolf.gd" id="1_i7tqy"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_cjmbn"]
@@ -21,7 +21,7 @@ shader_parameter/move_tick = 1.0
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 1.0000003325
-shader_parameter/extra_rot = 0.6000002660000003
+shader_parameter/extra_rotation = 0.6000002660000003
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7tqy"]
 size = Vector2(36, 20)
@@ -31,7 +31,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:extra_rot")
+tracks/0/path = NodePath(".:extra_rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +47,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:extra_rot")
+tracks/0/path = NodePath(".:extra_rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,7 +77,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:extra_rot")
+tracks/0/path = NodePath(".:extra_rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {

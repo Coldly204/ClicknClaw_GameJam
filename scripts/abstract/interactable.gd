@@ -13,12 +13,13 @@ func form_interactable():
 		var data = get_cell_tile_data(i)
 		var texture:Texture2D = get_tile_texture(i)
 		var pos = map_to_local(i)
-		var new_object = data.get_custom_data("Replace").instantiate()
+		var new_object = data.get_custom_data("Replace").instantiate() as InteractableObject
 		new_object.position = pos
-		new_object.set_texture(texture)
+		if !new_object.sprite:
+			new_object.set_texture(texture)
 		new_object.map_pos = i
 		call_deferred("add_child",new_object)
-		
+
 		set_cell(i,-1)
 		
 		if new_object is PickableItem:

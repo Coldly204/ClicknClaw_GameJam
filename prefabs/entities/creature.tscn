@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_h2aqy"]
 [ext_resource type="Script" uid="uid://fhubotd6tstg" path="res://scripts/abstract/StateMachine.gd" id="3_nfdr4"]
 [ext_resource type="Script" uid="uid://dbh4he8hjiqux" path="res://scripts/creature_states/base_idle.gd" id="4_01mso"]
+[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/creature_states/base_flee.gd" id="5_e18tu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sd3u"]
 
@@ -18,7 +19,7 @@ shader_parameter/move_tick = 1.0
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 1.0
-shader_parameter/extra_rot = 0.0
+shader_parameter/extra_rotation = 0.0
 
 [node name="Creature" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "collision", "state_machine") groups=["Entity"]]
 collision_layer = 4
@@ -53,3 +54,7 @@ master = NodePath("..")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=363468544]
 script = ExtResource("4_01mso")
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=557740295]
+script = ExtResource("5_e18tu")
+detect_range = 128.0

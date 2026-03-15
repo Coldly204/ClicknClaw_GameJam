@@ -4,19 +4,17 @@ extends State
 
 func on_enter(data_transfer = {}):
 	pass
-	
-	
+		
 func on_exit():
 	pass
-	
 
 func update(delta):
 	master.move(Vector2.ZERO,0,delta)
-	var nearest_entity = master.get_nearest_entity(detect_range)
-	#print(nearest_entity)
-	if master.hostile_nearby(detect_range):
+	var nearest_hostile = master.get_nearest_hostile(detect_range)
+	if nearest_hostile:
 		#If it detects a hostile entity (player or creature), chase (if state exists (predator-type)) or flee (prey-type)
 		if master.state_machine.has_state(StateType.CHASE):
-			transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
+			transitioned.emit(self,StateType.CHASE, {"target": nearest_hostile})
 		elif master.state_machine.has_state(StateType.FLEE):
-			transitioned.emit(self,StateType.FLEE, {"target": nearest_entity})
+			master.form_mark(load("res://assets/UI/red_exclamation.png"))
+			transitioned.emit(self,StateType.FLEE, {"target": nearest_hostile})

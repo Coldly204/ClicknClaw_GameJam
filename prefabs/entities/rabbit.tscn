@@ -22,7 +22,7 @@ shader_parameter/extra_rotation = 0.0
 radius = 18.027756
 
 [node name="Rabbit" unique_id=768621133 instance=ExtResource("1_xwpcf")]
-base_enmity = 1.0
+base_relationship = 0
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
 material = SubResource("ShaderMaterial_rcshk")

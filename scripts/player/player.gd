@@ -48,7 +48,7 @@ func motion_process(delta: float):
 			var begin: Vector2 = climbing_vines[0].global_position
 			var end: Vector2 = climbing_vines[-1].global_position
 			climb(begin, end, input, delta)
-		elif hiding:
+		elif is_hiding:
 			sprite.visible = false
 		else:
 			walk(input, delta)

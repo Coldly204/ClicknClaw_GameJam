@@ -14,12 +14,13 @@ enum RelationshipType {
 
 @export_category("Relationships")
 #Default enmity value, if unspecified
-@export var base_enmity = 0.5
+@export var base_relationship: RelationshipType = RelationshipType.NEUTRAL
 #If the enmity of another entity increases past this, this entity is hostile to it
-var threshold_till_hostile = 0.8
+var _threshold_till_hostile = 0.8
 #If the enmity of another entity goes below this, this entity is friendly to it
-var threshold_till_friendly = 0.3
-@export var default_enmity_values: Dictionary[EntityType, float]
+var _threshold_till_friendly = 0.3
+var _neutral_enmity_value
+@export var default_relationships: Dictionary[EntityType, RelationshipType]
 
 @export_category("Components")
 @export var appearance:Node2D
@@ -35,13 +36,22 @@ var shader_move_tick:float = 0
 
 func _ready() -> void:
 	super._ready()
-	_current_enmity_values = default_enmity_values.duplicate()
+	intialise_relationships(default_relationships)
+
+
+func intialise_relationships(relationship_dict: Dictionary[Entity.EntityType, RelationshipType]):
+	"""
+	Updates all enmity values and relationships based on `relationship_dict`. Also sets relationships
+	with all other creature types (except its own type) to `base_relationship` (usually NEUTRAL)
+	"""
+	_neutral_enmity_value = (_threshold_till_hostile - _threshold_till_friendly)/2
+	_current_relationships = relationship_dict.duplicate()
 	for entity_type in EntityType.values():
-		if !_current_enmity_values.has(entity_type):
-			_current_enmity_values[entity_type] = base_enmity
-	for entity_type in _current_enmity_values.keys():
-		_current_relationships[entity_type] = RelationshipType.NEUTRAL
-		update_relationship_with(entity_type)
+		if !_current_relationships.has(entity_type) and entity_type != self.type:
+			_current_relationships[entity_type] = base_relationship
+	for entity_type in _current_relationships.keys():
+		update_enmity_value(entity_type)
+		
 
 func move(motion:Vector2,move_speed: float,_delta:float):
 	velocity.x += sign(motion.x) * _delta * 420 * move_speed 
@@ -56,7 +66,7 @@ func walk(motion: Vector2, _delta: float):
 	move(motion,walk_speed,_delta)
 
 func run(motion: Vector2, _delta: float):
-	move(motion,walk_speed * run_speed_mult,_delta)
+	move(motion,walk_speed * run_speed_multiplier,_delta)
 
 
 func set_enmity(creature_type: EntityType, new_enmity: float):
@@ -65,24 +75,36 @@ func set_enmity(creature_type: EntityType, new_enmity: float):
 
 func update_relationship_with(creature_type: EntityType):
 	var enmity = _current_enmity_values[creature_type]
-	if enmity >= threshold_till_hostile:
+	if enmity >= _threshold_till_hostile:
 		_current_relationships[creature_type] = RelationshipType.HOSTILE
-	elif enmity <= threshold_till_friendly:
+	elif enmity <= _threshold_till_friendly:
 		_current_relationships[creature_type] = RelationshipType.FRIENDLY
 	else:
 		_current_relationships[creature_type] = RelationshipType.NEUTRAL
 
+func update_enmity_value(creature_type: EntityType):
+	var relationship = _current_relationships[creature_type]
+	match relationship:
+		RelationshipType.HOSTILE:
+			_current_enmity_values[creature_type] = _threshold_till_hostile
+		RelationshipType.NEUTRAL:
+			_current_enmity_values[creature_type] = _neutral_enmity_value
+		RelationshipType.FRIENDLY:
+			_current_enmity_values[creature_type] = _threshold_till_friendly
+
 func get_relationship_with(creature_type: EntityType):
 	return _current_relationships[creature_type]
 
+func get_enmity_value_regarding(creature_type: EntityType):
+	return _current_enmity_values[creature_type]
 
-func hostile_nearby(detect_range: float) -> bool:
+
+func is_hostile_nearby(detect_range: float) -> bool:
 	var nearest_entity = get_nearest_entity(detect_range)
 	if nearest_entity:
 		if is_hostile_to(nearest_entity.type):
 			return true
 	return false
-
 
 func is_hostile_to(creature_type: EntityType) -> bool:
 	return _current_relationships[creature_type] == RelationshipType.HOSTILE
@@ -102,7 +124,7 @@ func form_mark(texture:Texture2D):
 func get_nearest_hostile(radius: float) -> Entity:
 	var entities = get_tree().get_nodes_in_group("Entity")
 	for entity: Entity in entities:
-		if entity == self or entity.current_health <= 0 or entity.hiding:
+		if entity == self or entity.current_health <= 0 or entity.is_hiding:
 			continue
 		var dist_to_entity = entity.global_position.distance_to(global_position)
 		if dist_to_entity <= radius and is_hostile_to(entity.type):
@@ -112,12 +134,12 @@ func get_nearest_hostile(radius: float) -> Entity:
 func other_process(delta:float):
 	shader_material.set_shader_parameter("extra_rotation", extra_rotation)
 	if current_health <= 0:
-		death()
+		die()
 		queue_free()
 	else:
 		state_machine.update(delta)
 
-func death():
+func die():
 	var new_corpse:Corpse = load("res://prefabs/entities/corpse.tscn").instantiate()
 	new_corpse.global_position = global_position + Vector2(0,-8)
 	new_corpse.food_amount = max_hunger

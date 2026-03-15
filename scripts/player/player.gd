@@ -46,7 +46,6 @@ func motion_process(delta: float):
 			walk(input, delta)
 			
 			
-			
 		if held_item:
 			if Input.is_action_pressed("cancel_use"):
 				dotted_line.visible = false
@@ -66,16 +65,9 @@ func motion_process(delta: float):
 					throw(held_item)
 					held_item = ""
 					using_item = false
-					
-<<<<<<< HEAD
-		if shader_material:
-			shader_material.set_shader_parameter("move_tick", shader_move_tick)
-			shader_material.set_shader_parameter("speed", walk_speed * 3.0)
-=======
 	if shader_material:
 		shader_material.set_shader_parameter("move_tick", shader_move_tick)
-		shader_material.set_shader_parameter("speed", move_speed * 3.0)
->>>>>>> feat-creatures
+		shader_material.set_shader_parameter("speed", walk_speed * 3.0)
 					
 	move_and_slide()
 	

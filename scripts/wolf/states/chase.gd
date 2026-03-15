@@ -18,7 +18,7 @@ func update(delta):
 		var x_dire = sign(rela.x)
 		
 		
-		if rela.length() > detect_range:
+		if rela.length() > detect_range or target.hiding:
 			transitioned.emit(self,StateType.IDLE)
 		if rela.length() < 20:
 			master.animation_player.play("attack")

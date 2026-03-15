@@ -47,8 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtvp5"]
-radius = 12.0
-height = 46.0
+radius = 9.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_83v73"]
 radius = 18.001736
@@ -72,7 +71,7 @@ position = Vector2(0, -12.5)
 sprite_frames = SubResource("SpriteFrames_8qovm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757404181]
-position = Vector2(0, -23)
+position = Vector2(-0.25, -13.75)
 shape = SubResource("CapsuleShape2D_jtvp5")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master")]

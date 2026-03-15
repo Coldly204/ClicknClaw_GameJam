@@ -21,21 +21,23 @@ shader_parameter/type = 2
 shader_parameter/thickness = 1.0
 shader_parameter/extra_rotation = 0.0
 
-[node name="Creature" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "collision", "state_machine") groups=["Entity"]]
+[node name="Creature" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "state_machine", "nav_agent") groups=["Entity"]]
 collision_layer = 4
 script = ExtResource("1_e18tu")
 appearance = NodePath("Appearance")
-collision = NodePath("CollisionShape2D")
 state_machine = NodePath("StateMachine")
+nav_agent = NodePath("NavigationAgent2D")
+type = 1
 max_health = 1
 max_hunger = 1
-type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226321371]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_6sd3u")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=103564601]
+target_desired_distance = 20.0
+debug_enabled = true
 
 [node name="Appearance" type="Node2D" parent="." unique_id=1187707011]
 material = SubResource("ShaderMaterial_sg1ma")
@@ -54,6 +56,9 @@ master = NodePath("..")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=363468544]
 script = ExtResource("4_01mso")
+roam_time = 2.5
+
+[node name="RoamTimer" type="Timer" parent="StateMachine/Idle" unique_id=1607577021]
 
 [node name="Flee" type="Node" parent="StateMachine" unique_id=557740295]
 script = ExtResource("5_e18tu")

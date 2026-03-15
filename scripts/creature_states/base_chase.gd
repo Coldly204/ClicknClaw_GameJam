@@ -11,21 +11,15 @@ func on_enter(data_transfer = {}):
 func on_exit():
 	pass
 	
-
 func update(delta):
-	if target:
+	if target and target.current_health > 0:
 		var rela =  target.global_position - master.global_position
 		var x_dire = sign(rela.x)
-		
-		
-		if rela.length() > detect_range:
+		if rela.length() > detect_range or target.hiding:
 			transitioned.emit(self,StateType.IDLE)
 		if rela.length() < 20:
-			master.animation_player.play("eat")
+			master.animation_player.play("attack")
 		else:
-			master.walk(Vector2(x_dire,0),delta)
-		
-		if master.current_hunger >= master.max_hunger or target.max_hunger <= 0:
-			transitioned.emit(self,StateType.IDLE)
+			master.run(Vector2(x_dire,0),delta)
 	else:
 		transitioned.emit(self,StateType.IDLE)

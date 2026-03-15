@@ -8,6 +8,7 @@ enum StateType {
 	IDLE,
 	FLEE,
 	CHASE,
+	FOLLOW,
 	HIDE,
 	FORAGING,
 }
@@ -23,5 +24,5 @@ func on_exit():
 	pass
 	
 func update(delta):
-	master.move(Vector2.ZERO,delta)
+	pass
 	

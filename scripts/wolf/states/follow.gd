@@ -1,31 +1,25 @@
 extends State
 
-@export var detect_range:float = 164
+@export var follow_range:float = 400
+#Will not be more than this close to other friendlies
+@export var follow_threshold:float = 50
 
 var target:Entity
 
 func on_enter(data_transfer = {}):
 	target = data_transfer["target"]
 	
-	
 func on_exit():
 	pass
 	
 
 func update(delta):
-	if target:
+	if target and target.current_health > 0:
 		var rela =  target.global_position - master.global_position
 		var x_dire = sign(rela.x)
-		
-		
-		if rela.length() > detect_range:
+		if rela.length() >= follow_range or rela.length() <= follow_threshold:
 			transitioned.emit(self,StateType.IDLE)
-		if rela.length() < 20:
-			master.animation_player.play("eat")
 		else:
 			master.walk(Vector2(x_dire,0),delta)
-		
-		if master.current_hunger >= master.max_hunger or target.max_hunger <= 0:
-			transitioned.emit(self,StateType.IDLE)
 	else:
 		transitioned.emit(self,StateType.IDLE)

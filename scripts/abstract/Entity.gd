@@ -4,7 +4,8 @@ class_name Entity
 @export_category("Attribute")
 @export var max_health:int
 @export var max_hunger:int
-@export var move_speed:float
+@export var walk_speed:float = 1.5
+@export var run_speed_mult:float = 1.5
 @export var type: EntityType
 
 var hiding:bool = false
@@ -33,8 +34,10 @@ func get_nearest_entity(radius: float) -> Entity:
 			return entity
 	return null
 
+
+
 func get_nearest_deadbody(radius: float) -> Entity:
-	var entities = get_tree().get_nodes_in_group("Entity")
+	var entities = get_tree().get_nodes_in_group("Entity") 
 	for entity: Entity in entities:
 		if entity == self or entity.current_health > 0:
 			continue

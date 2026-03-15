@@ -1,17 +1,10 @@
-[gd_scene format=3 uid="uid://cq3y6hmtpchwc"]
+[gd_scene format=3 uid="uid://bx4u0tf8b1b2b"]
 
-[ext_resource type="Script" uid="uid://b2r5dkwcpmkcs" path="res://scripts/rabbit/rabbit.gd" id="1_rdgxo"]
-[ext_resource type="Texture2D" uid="uid://bcx6qo0j3k72g" path="res://assets/Animals/Rabbit_Corpse.png" id="2_6b8an"]
+[ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" uid="uid://fhubotd6tstg" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
-[ext_resource type="Texture2D" uid="uid://sqvhndddkjyo" path="res://assets/tilemap/Animals/Rabbit.png" id="3_juml2"]
-[ext_resource type="Script" uid="uid://clgt2vaixhdns" path="res://scripts/rabbit/states/idle.gd" id="4_sg1ma"]
-[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/rabbit/states/flee.gd" id="5_dup2t"]
-[ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="6_6hjdx"]
+[ext_resource type="Script" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6sd3u"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sg1ma"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwpcf"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
@@ -24,54 +17,21 @@ shader_parameter/type = 2
 shader_parameter/thickness = 0.0
 shader_parameter/extra_rot = 0.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_juml2"]
-radius = 20.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcshk"]
+radius = 18.027756
 
-[node name="Rabbit" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "collision", "state_machine") groups=["Entity"]]
-collision_layer = 4
-script = ExtResource("1_rdgxo")
-texture_corpse = ExtResource("2_6b8an")
-default_enmity_values = Dictionary[int, float]({
-0: 1.0,
-2: 1.0
-})
-appearance = NodePath("Appearance")
-collision = NodePath("CollisionShape2D")
-state_machine = NodePath("StateMachine")
-max_health = 1
-max_hunger = 1
-move_speed = 2.0
-type = 1
+[node name="Rabbit" unique_id=768621133 instance=ExtResource("1_xwpcf")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226321371]
+[node name="Appearance" parent="." index="2" unique_id=1187707011]
+material = SubResource("ShaderMaterial_xwpcf")
+
+[node name="Label" parent="Appearance" index="0" unique_id=1179211352]
+text = "Rabbit"
+
+[node name="InteractionArea" type="Area2D" parent="." index="4" unique_id=1846206117]
+script = ExtResource("3_y2y4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1372870252]
 position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_6sd3u")
-
-[node name="Appearance" type="Node2D" parent="." unique_id=1187707011]
-material = SubResource("ShaderMaterial_sg1ma")
-
-[node name="Sprite2D" type="Sprite2D" parent="Appearance" unique_id=315960589]
-use_parent_material = true
-position = Vector2(0, -7)
-texture = ExtResource("3_juml2")
-
-[node name="StateMachine" type="Node" parent="." unique_id=2060191624 node_paths=PackedStringArray("master")]
-script = ExtResource("3_6sd3u")
-master = NodePath("..")
-
-[node name="idle" type="Node" parent="StateMachine" unique_id=1312221324]
-script = ExtResource("4_sg1ma")
-
-[node name="flee" type="Node" parent="StateMachine" unique_id=1465889719]
-script = ExtResource("5_dup2t")
-
-[node name="InteranctionArea" type="Area2D" parent="." unique_id=1411790097 node_paths=PackedStringArray("master")]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("6_6hjdx")
-master = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteranctionArea" unique_id=525589995]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_juml2")
-debug_color = Color(0.9665665, 1.4439225e-06, 0.48270833, 0.41960785)
+shape = SubResource("CircleShape2D_rcshk")
+debug_color = Color(0.862824, 0.238743, 0.67460465, 0.41960785)

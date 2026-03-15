@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c6kksi04gk2dk"]
+
+[ext_resource type="Script" uid="uid://bnd6tks1gduyh" path="res://scripts/player/player_info.gd" id="1_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://b4lvpa6kw20o7" path="res://sprites/UI/heart_full.png.png" id="2_8dubc"]
+[ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://sprites/UI/hunger_full.png" id="3_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="4_ktti3"]
+[ext_resource type="Texture2D" uid="uid://b24vpuh1sg8yw" path="res://sprites/UI/day.png" id="5_cgfq5"]
+
+[node name="UI" type="CanvasLayer" unique_id=1190792972]
+
+[node name="PlayerInfo" type="Control" parent="." unique_id=1918069214 node_paths=PackedStringArray("hunger_list", "item_label")]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_wm3ai")
+hunger_list = NodePath("StatusPanel/HungerBar")
+item_label = NodePath("ItemPanel/HBoxContainer/Label2")
+
+[node name="StatusPanel" type="VBoxContainer" parent="PlayerInfo" unique_id=360258523]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -600.0
+offset_right = 225.0
+offset_bottom = -530.0
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="HealthBar" type="HBoxContainer" parent="PlayerInfo/StatusPanel" unique_id=999656841]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Heart1" type="TextureRect" parent="PlayerInfo/StatusPanel/HealthBar" unique_id=1494324951]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_8dubc")
+expand_mode = 1
+
+[node name="Heart2" type="TextureRect" parent="PlayerInfo/StatusPanel/HealthBar" unique_id=1517828849]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_8dubc")
+expand_mode = 1
+
+[node name="Heart3" type="TextureRect" parent="PlayerInfo/StatusPanel/HealthBar" unique_id=1990859503]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_8dubc")
+expand_mode = 1
+
+[node name="Heart4" type="TextureRect" parent="PlayerInfo/StatusPanel/HealthBar" unique_id=518624253]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_8dubc")
+expand_mode = 1
+
+[node name="Heart5" type="TextureRect" parent="PlayerInfo/StatusPanel/HealthBar" unique_id=1686732688]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_8dubc")
+expand_mode = 1
+
+[node name="HungerBar" type="HBoxContainer" parent="PlayerInfo/StatusPanel" unique_id=448737911]
+layout_mode = 2
+
+[node name="Hunger1" type="TextureRect" parent="PlayerInfo/StatusPanel/HungerBar" unique_id=1810110909]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_p7vwb")
+
+[node name="Hunger2" type="TextureRect" parent="PlayerInfo/StatusPanel/HungerBar" unique_id=1735148579]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_p7vwb")
+
+[node name="Hunger3" type="TextureRect" parent="PlayerInfo/StatusPanel/HungerBar" unique_id=553474864]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_p7vwb")
+
+[node name="Hunger4" type="TextureRect" parent="PlayerInfo/StatusPanel/HungerBar" unique_id=61278674]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_p7vwb")
+
+[node name="Hunger5" type="TextureRect" parent="PlayerInfo/StatusPanel/HungerBar" unique_id=1022774455]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_p7vwb")
+
+[node name="ItemPanel" type="MarginContainer" parent="PlayerInfo" unique_id=1783964879]
+layout_mode = 0
+offset_top = -105.0
+offset_right = 136.0
+offset_bottom = 77.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PlayerInfo/ItemPanel" unique_id=981450910]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=1214051573]
+layout_mode = 2
+text = "Item placeholder"
+
+[node name="Label2" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=1197508838]
+layout_mode = 2
+text = "Item"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=474241008]
+layout_mode = 2
+texture = ExtResource("4_ktti3")
+
+[node name="TimePanel" type="MarginContainer" parent="PlayerInfo" unique_id=695201894]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = -600.0
+offset_right = 1144.0
+offset_bottom = -536.0
+
+[node name="TimeIcon" type="TextureRect" parent="PlayerInfo/TimePanel" unique_id=137704701]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_cgfq5")

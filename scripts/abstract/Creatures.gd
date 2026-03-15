@@ -114,6 +114,7 @@ func other_process(delta:float):
 	shader_material.set_shader_parameter("extra_rot", extra_rot)
 	
 	if current_health <= 0:
+		print(1)
 		death()
 		queue_free()
 	else:

@@ -5,10 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://sprites/UI/hunger_full.png" id="3_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="4_ktti3"]
 [ext_resource type="Texture2D" uid="uid://b24vpuh1sg8yw" path="res://sprites/UI/day.png" id="5_cgfq5"]
+[ext_resource type="PackedScene" uid="uid://bgrlfroxcgtgx" path="res://scenes/transition.tscn" id="6_8dubc"]
 
 [node name="UI" type="CanvasLayer" unique_id=1190792972]
 
 [node name="PlayerInfo" type="Control" parent="." unique_id=1918069214 node_paths=PackedStringArray("hunger_list", "item_label")]
+texture_filter = 3
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -103,6 +105,7 @@ size_flags_horizontal = 0
 theme_override_constants/margin_left = 4
 
 [node name="HBoxContainer" type="VBoxContainer" parent="PlayerInfo/ItemPanel" unique_id=981450910]
+texture_filter = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -110,10 +113,12 @@ size_flags_stretch_ratio = 0.0
 alignment = 1
 
 [node name="Label" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=1214051573]
+texture_filter = 3
 layout_mode = 2
 text = "Item placeholder"
 
 [node name="Label2" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=1197508838]
+texture_filter = 3
 layout_mode = 2
 text = "Item"
 
@@ -132,3 +137,6 @@ offset_bottom = -536.0
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_cgfq5")
+
+[node name="Transition" parent="." unique_id=515674955 instance=ExtResource("6_8dubc")]
+visible = false

@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://cfm5bsrc78qc0" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bitminjpp6yms" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
+texture_filter = 3
 
-[node name="Camera2D" type="Node2D" parent="." unique_id=1349929097]
-
-[node name="Camera2D" type="Camera2D" parent="Camera2D" unique_id=1657630754]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1657630754]
+texture_filter = 3
 position = Vector2(256, -128)
 zoom = Vector2(2, 2)
 
@@ -40,7 +40,7 @@ position = Vector2(63, -34)
 scale = Vector2(1, 1)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
-position = Vector2(308, -39)
+position = Vector2(231, -42)
 
 [node name="Wolf" parent="." unique_id=497817574 instance=ExtResource("9_0tnpc")]
 position = Vector2(435, -44)

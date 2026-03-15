@@ -14,6 +14,9 @@ func update(delta):
 	master.move(Vector2.ZERO,0,delta)
 	var nearest_entity = master.get_nearest_entity(detect_range)
 	#print(nearest_entity)
+	if master is Rabbit:
+		if nearest_entity:
+			print(master.is_hostile_to(nearest_entity.type))
 	if master.hostile_nearby(detect_range):
 		#If it detects a hostile entity (player or creature), chase (if state exists (predator-type)) or flee (prey-type)
 		if master.state_machine.has_state(StateType.CHASE):

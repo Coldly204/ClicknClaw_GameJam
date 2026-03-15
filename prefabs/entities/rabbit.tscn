@@ -2,36 +2,40 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
+[ext_resource type="Texture2D" uid="uid://bcx6qo0j3k72g" path="res://assets/Animals/Rabbit_Corpse.png" id="2_rcshk"]
+[ext_resource type="Texture2D" uid="uid://sqvhndddkjyo" path="res://assets/Animals/Rabbit.png" id="3_rcshk"]
+[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/creature_states/base_flee.gd" id="5_dup2t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwpcf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dup2t"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
 shader_parameter/speed = 3.0
 shader_parameter/bounce_amount = 8.00000038
-shader_parameter/squash_amount = 0.0800000038
+shader_parameter/squash_amount = 0.06000000285
 shader_parameter/move_tick = 1.0
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 0.0
 shader_parameter/extra_rot = 0.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rcshk"]
-radius = 18.027756
-
 [node name="Rabbit" unique_id=768621133 instance=ExtResource("1_xwpcf")]
+_current_relationships = Dictionary[int, int]({
+0: 0
+})
+texture_corpse = ExtResource("2_rcshk")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_xwpcf")
+material = SubResource("ShaderMaterial_dup2t")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
+visible = false
 text = "Rabbit"
 
-[node name="InteractionArea" type="Area2D" parent="." index="4" unique_id=1846206117]
-script = ExtResource("3_y2y4c")
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" index="1" unique_id=626679146]
+use_parent_material = true
+position = Vector2(0, -7)
+texture = ExtResource("3_rcshk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1372870252]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_rcshk")
-debug_color = Color(0.862824, 0.238743, 0.67460465, 0.41960785)
+[node name="Flee" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="1" unique_id=1766969067]
+script = ExtResource("5_dup2t")

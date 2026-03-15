@@ -48,7 +48,12 @@ func motion_process(delta: float):
 			
 			
 		if held_item:
-			if Input.is_action_pressed("cancel_use"):
+			if Input.is_action_just_pressed("eat"):
+				if held_item == "Meat":
+					current_hunger += 1
+					held_item = ""
+
+			elif Input.is_action_pressed("cancel_use"):
 				dotted_line.visible = false
 				using_item = false
 			elif Input.is_action_pressed("use_item"):
@@ -142,8 +147,5 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 			break
 	return points
 	
-func eat():
-	if held_item == "Meat":
-		current_hunger += 1
-		held_item = ""
+
 		

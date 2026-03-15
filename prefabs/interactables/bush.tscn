@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1brhpfxqay0s"]
+
+[ext_resource type="Script" uid="uid://dfft22352rbne" path="res://scripts/bush.gd" id="1_50o7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hytr2"]
+size = Vector2(48, 48)
+
+[node name="Bush" type="Area2D" unique_id=782496943]
+script = ExtResource("1_50o7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1552810688]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1232179759]
+shape = SubResource("RectangleShape2D_hytr2")

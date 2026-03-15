@@ -9,6 +9,7 @@ enum StateType {
 	FLEE,
 	CHASE,
 	HIDE,
+	FORAGING,
 }
 
 signal transitioned

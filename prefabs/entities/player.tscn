@@ -17,6 +17,7 @@ shader_parameter/move_tick = 4.7499999933364734e-08
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 1
 shader_parameter/thickness = 1.0
+shader_parameter/extra_rot = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83v73"]
 atlas = ExtResource("3_2tsmg")
@@ -54,8 +55,7 @@ radius = 18.001736
 
 [node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "collision_shape", "dotted_line") groups=["Entity"]]
 scale = Vector2(4, 4)
-collision_layer = 4
-collision_mask = 5
+collision_layer = 8
 script = ExtResource("1_j0cl5")
 sprite = NodePath("Sprite")
 collision_shape = NodePath("CollisionShape2D")

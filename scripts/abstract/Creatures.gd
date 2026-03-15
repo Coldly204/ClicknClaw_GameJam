@@ -24,10 +24,12 @@ enum RelationshipType {
 @export var appearance:Node2D
 @export var collision:CollisionShape2D
 @export var state_machine:StateMachine
+@export var animation_player:AnimationPlayer
 
 @onready var shader_material = appearance.material
 
 var shader_move_tick:float = 0
+@export var extra_rot:float = 0
 
 func _ready() -> void:
 	super._ready()
@@ -40,7 +42,7 @@ func _ready() -> void:
 		update_relationship_with(entity_type)
 
 func move(motion:Vector2,_delta:float):
-	velocity.x += motion.x * _delta * 420 * move_speed
+	velocity.x += sign(motion.x) * _delta * 420 * move_speed
 	appearance.scale.x = sign(velocity.x) if velocity.x != 0 else appearance.scale.x
 	shader_move_tick += (abs(motion.x)-shader_move_tick)*_delta*10
 	if shader_material:
@@ -79,3 +81,18 @@ func is_friendly_to(creature_type: EntityType) -> bool:
 
 func is_neutral_to(creature_type: EntityType) -> bool:
 	return _current_relationships[creature_type] == RelationshipType.NEUTRAL
+	
+	
+
+	
+func other_process(delta:float):
+
+	
+	shader_material.set_shader_parameter("extra_rot", extra_rot)
+	
+	if current_health <= 0:
+		modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if max_hunger <= 0:
+			queue_free()
+	else:
+		state_machine.update(delta)

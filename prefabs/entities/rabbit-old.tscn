@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cq3y6hmtpchwc"]
+[gd_scene format=3 uid="uid://mpcll606nyvc"]
 
 [ext_resource type="Script" uid="uid://b2r5dkwcpmkcs" path="res://scripts/rabbit/rabbit.gd" id="1_yst3t"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_jaswe"]

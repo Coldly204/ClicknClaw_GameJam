@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
+[ext_resource type="Script" uid="uid://rphn2f5u7swb" path="res://scripts/rabbit/rabbit_flee.gd" id="3_rcshk"]
+[ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwpcf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rcshk"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
@@ -15,18 +16,22 @@ shader_parameter/move_tick = 1.0
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 0.0
-shader_parameter/extra_rot = 0.0
+shader_parameter/extra_rotation = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcshk"]
 radius = 18.027756
 
 [node name="Rabbit" unique_id=768621133 instance=ExtResource("1_xwpcf")]
+base_enmity = 1.0
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_xwpcf")
+material = SubResource("ShaderMaterial_rcshk")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 text = "Rabbit"
+
+[node name="Flee" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="1" unique_id=557740295]
+script = ExtResource("3_rcshk")
 
 [node name="InteractionArea" type="Area2D" parent="." index="4" unique_id=1846206117]
 script = ExtResource("3_y2y4c")

@@ -35,7 +35,6 @@ func get_nearest_entity(radius: float) -> Entity:
 	return null
 
 
-
 func get_nearest_deadbody(radius: float) -> Entity:
 	var entities = get_tree().get_nodes_in_group("Entity") 
 	for entity: Entity in entities:

@@ -21,7 +21,7 @@ func on_exit():
 func update(delta):
 	master.move(Vector2.ZERO,0,delta)
 	var nearest_entity = master.get_nearest_entity(detect_range)
-	var nearest_deadbody = master.get_nearest_deadbody(detect_range)
+	var nearest_deadbody = master.get_nearest_corpse(detect_range)
 	if nearest_entity:
 		if master.is_hostile_to(nearest_entity.type):
 			master.form_mark(load("res://assets/UI/white_exclamation.png"))

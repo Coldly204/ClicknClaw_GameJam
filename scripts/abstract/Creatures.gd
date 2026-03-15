@@ -10,20 +10,20 @@ enum RelationshipType {
 	FRIENDLY
 }
 
-@export var texture_corpse:Texture2D
+@export var corpse_texture:Texture2D
 
 @export_category("Relationships")
+#Default enmity value, if unspecified
+@export var base_enmity = 0.5
 #If the enmity of another entity increases past this, this entity is hostile to it
 var threshold_till_hostile = 0.8
-#Default enmity value, if unspecified
-var base_enmity = 0.5
 #If the enmity of another entity goes below this, this entity is friendly to it
 var threshold_till_friendly = 0.3
 @export var default_enmity_values: Dictionary[EntityType, float]
 
 @export_category("Components")
 @export var appearance:Node2D
-@export var collision:CollisionShape2D
+@export var collider:CollisionShape2D
 @export var interaction_area:Area2D
 @export var state_machine:StateMachine
 @export var animation_player:AnimationPlayer
@@ -31,7 +31,7 @@ var threshold_till_friendly = 0.3
 @onready var shader_material = appearance.material
 
 var shader_move_tick:float = 0
-@export var extra_rot:float = 0
+@export var extra_rotation:float = 0
 
 func _ready() -> void:
 	super._ready()
@@ -110,9 +110,7 @@ func get_nearest_hostile(radius: float) -> Entity:
 	return null
 	
 func other_process(delta:float):
-	
-	shader_material.set_shader_parameter("extra_rot", extra_rot)
-	
+	shader_material.set_shader_parameter("extra_rotation", extra_rotation)
 	if current_health <= 0:
 		death()
 		queue_free()
@@ -123,5 +121,5 @@ func death():
 	var new_corpse:Corpse = load("res://prefabs/entities/corpse.tscn").instantiate()
 	new_corpse.global_position = global_position + Vector2(0,-8)
 	new_corpse.food_amount = max_hunger
-	new_corpse.set_texture(texture_corpse)
+	new_corpse.set_texture(corpse_texture)
 	Global.scene.add_child(new_corpse)

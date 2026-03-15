@@ -1,15 +1,13 @@
 extends Creature
 class_name Rabbit
-
 <<<<<<< HEAD
+
 
 func other_process(delta:float):
 	super.other_process(delta)
 	
-=======
 func interact(player:Player):
 	if current_health<=0:
-		
 		if player.held_item == "":
 			player.held_item = "Meat"
 		else:
@@ -22,4 +20,5 @@ func interact(player:Player):
 		max_hunger -= 1
 		if max_hunger <= 0:
 			queue_free()
->>>>>>> feat-creatures
+=======
+>>>>>>> e9e435c53caa16a6cc3ebb2d89e8dd9ed6c21ebb

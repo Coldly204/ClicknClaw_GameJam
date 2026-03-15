@@ -1,4 +1,4 @@
-extends InteractObject
+extends InteractableObject
 class_name Corpse
 
 var food_amount:int

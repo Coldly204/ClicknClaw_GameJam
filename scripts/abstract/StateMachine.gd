@@ -20,6 +20,7 @@ func _ready() -> void:
 			if i.type == init_state:
 				i.on_enter()
 				current_state = i
+	print(states)
 	
 func has_state(state_type: State.StateType):
 	return states.has(state_type)

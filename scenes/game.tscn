@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://btrahgdnin504" path="res://scripts/abstract/interactable.gd" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cq3y6hmtpchwc" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
 [ext_resource type="Script" uid="uid://bnd6tks1gduyh" path="res://scripts/player/player_info.gd" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://assets/UI/hunger_full.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="8_vtaks"]
-[ext_resource type="PackedScene" uid="uid://bitminjpp6yms" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cfm5bsrc78qc0" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
@@ -41,9 +41,6 @@ script = ExtResource("3_lbhrr")
 [node name="Player" parent="." unique_id=533130759 groups=["Player"] instance=ExtResource("3_lnu2h")]
 position = Vector2(63, -34)
 scale = Vector2(1, 1)
-
-[node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
-position = Vector2(271, -37)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288043993]
 
@@ -112,5 +109,11 @@ text = "Item placeholder"
 layout_mode = 2
 text = "Item"
 
-[node name="Wolf" parent="." unique_id=913260208 instance=ExtResource("9_0tnpc")]
-position = Vector2(492, -40)
+[node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
+position = Vector2(308, -39)
+
+[node name="Wolf" parent="." unique_id=497817574 instance=ExtResource("9_0tnpc")]
+position = Vector2(435, -44)
+
+[node name="Wolf2" parent="." unique_id=881826921 instance=ExtResource("9_0tnpc")]
+position = Vector2(365, -49)

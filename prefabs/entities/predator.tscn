@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b3bptux15qccw"]
+
+[ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_hto5h"]
+[ext_resource type="Script" uid="uid://dqcu8mw6aftxe" path="res://scripts/abstract/predator.gd" id="2_3k8ej"]
+[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qhbac"]
+[ext_resource type="Script" uid="uid://018qytdajrlo" path="res://scripts/creature_states/base_chase.gd" id="3_gm67o"]
+[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/creature_states/base_flee.gd" id="4_fa6ax"]
+[ext_resource type="Animation" uid="uid://cv1ygrtdm1h4w" path="res://resources/animations/attack.res" id="5_fa6ax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gm67o"]
+resource_local_to_scene = true
+shader = ExtResource("2_qhbac")
+shader_parameter/pivot = Vector2(0, 0)
+shader_parameter/speed = 3.0
+shader_parameter/bounce_amount = 15.0
+shader_parameter/squash_amount = 0.15
+shader_parameter/move_tick = 1.0
+shader_parameter/clr = Color(0, 0, 0, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 1.0
+shader_parameter/extra_rot = 0.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3k8ej"]
+_data = {
+&"attack": ExtResource("5_fa6ax")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k8ej"]
+size = Vector2(36, 20)
+
+[node name="Predator" unique_id=768621133 node_paths=PackedStringArray("hitbox", "animation_player") instance=ExtResource("1_hto5h")]
+script = ExtResource("2_3k8ej")
+hitbox = NodePath("Hitbox")
+default_enmity_values = Dictionary[int, float]({
+0: 1.0,
+1: 1.0
+})
+animation_player = NodePath("AnimationPlayer")
+type = 2
+
+[node name="Appearance" parent="." index="2" unique_id=1187707011]
+material = SubResource("ShaderMaterial_gm67o")
+
+[node name="Label" parent="Appearance" index="0" unique_id=1179211352]
+text = "Predator"
+
+[node name="Chase" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="1" unique_id=1527479460]
+script = ExtResource("3_gm67o")
+
+[node name="Flee" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="2" unique_id=95469985]
+script = ExtResource("4_fa6ax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=534294051]
+root_node = NodePath("../StateMachine")
+libraries/ = SubResource("AnimationLibrary_3k8ej")
+
+[node name="Hitbox" type="Area2D" parent="." index="5" unique_id=1933838294]
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1155458800]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_3k8ej")
+debug_color = Color(0.98213965, 0, 0.36902735, 0.41960785)

@@ -62,7 +62,6 @@ collision_shape = NodePath("CollisionShape2D")
 dotted_line = NodePath("Line2D")
 max_health = 3
 max_hunger = 3
-move_speed = 2.0
 current_health = 3
 current_hunger = 1
 

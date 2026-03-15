@@ -66,14 +66,14 @@ func motion_process(delta: float):
 					
 		if shader_material:
 			shader_material.set_shader_parameter("move_tick", shader_move_tick)
-			shader_material.set_shader_parameter("speed", move_speed * 3.0)
+			shader_material.set_shader_parameter("speed", walk_speed * 3.0)
 					
 	move_and_slide()
 	
 func walk(input: Vector2, delta: float):
 	sprite.animation = "default"
 	collision_shape.disabled = false
-	velocity.x += input.x * delta * 420 * move_speed
+	velocity.x += input.x * delta * 420 * walk_speed 
 	velocity.x *= 0.9
 	velocity.y += delta * 960
 	sprite.scale.x = sign(velocity.x) if velocity.x != 0 else sprite.scale.x

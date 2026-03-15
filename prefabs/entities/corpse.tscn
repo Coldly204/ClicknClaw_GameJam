@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d1nvegjv0efh6"]
+
+[ext_resource type="Script" uid="uid://be0mcuvnphhak" path="res://scripts/Corpse/corpse.gd" id="1_as2bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w67gs"]
+size = Vector2(40, 30)
+
+[node name="Corpse" type="Area2D" unique_id=1845243013 node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_as2bi")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1896384813]
+shape = SubResource("RectangleShape2D_w67gs")
+debug_color = Color(0.9611816, 1.2513996e-06, 0.5145595, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1632949305]

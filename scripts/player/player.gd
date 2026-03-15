@@ -28,6 +28,14 @@ func _physics_process(delta: float) -> void:
 #Handles movement, climbing and throwing
 func motion_process(delta: float):
 	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
+	
+	if Input.is_action_just_pressed("1"):
+		Global.transition._dark()
+	if Input.is_action_just_pressed("2"):
+		Global.transition._light()
+	
+	
+	
 	if current_health <= 0:
 		velocity.x = 0
 		shader_move_tick = 0

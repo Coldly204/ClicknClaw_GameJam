@@ -17,9 +17,5 @@ func update(delta):
 	if master.hostile_nearby(detect_range):
 		#If it detects a hostile entity (player or creature), chase (if state exists (predator-type)) or flee (prey-type)
 		if master.state_machine.has_state(StateType.FLEE):
-			var new_disclaimer = load("res://prefabs/Mark.tscn").instantiate()
-			new_disclaimer.position = Vector2(0,-16)
-			new_disclaimer.texture = load("res://assets/UI/white_exclamation.png")
-			master.add_child(new_disclaimer)
-			
+			master.form_mark(load("res://assets/UI/red_exclamation.png"))
 			transitioned.emit(self,StateType.FLEE, {"target": nearest_entity})

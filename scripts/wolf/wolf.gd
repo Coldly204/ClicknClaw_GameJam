@@ -8,8 +8,6 @@ func other_process(delta:float):
 	super.other_process(delta)
 
 
-
-
 func attack():
 	var hit_entity = hitbox.get_overlapping_bodies()
 	for i in hit_entity:

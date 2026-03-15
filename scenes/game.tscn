@@ -39,7 +39,7 @@ tile_set = ExtResource("1_uwrxv")
 script = ExtResource("3_lbhrr")
 
 [node name="Player" parent="." unique_id=533130759 groups=["Player"] instance=ExtResource("3_lnu2h")]
-position = Vector2(494, -47)
+position = Vector2(63, -34)
 scale = Vector2(1, 1)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
@@ -113,4 +113,4 @@ layout_mode = 2
 text = "Item"
 
 [node name="Wolf" parent="." unique_id=913260208 instance=ExtResource("9_0tnpc")]
-position = Vector2(48, -35)
+position = Vector2(492, -40)

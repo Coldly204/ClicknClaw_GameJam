@@ -24,6 +24,7 @@ func update(delta):
 	var nearest_deadbody = master.get_nearest_deadbody(detect_range)
 
 	if nearest_entity:
-		transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
+		if master.is_hostile_to(nearest_entity):
+			transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
 	elif nearest_deadbody:
 		transitioned.emit(self,StateType.FORAGING, {"target": nearest_deadbody})

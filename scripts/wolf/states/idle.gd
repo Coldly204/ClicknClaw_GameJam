@@ -24,6 +24,7 @@ func update(delta):
 	var nearest_deadbody = master.get_nearest_deadbody(detect_range)
 	if nearest_entity:
 		if master.is_hostile_to(nearest_entity.type):
+			master.form_mark(load("res://assets/UI/white_exclamation.png"))
 			transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
 		if master.is_friendly_to(nearest_entity.type):
 			transitioned.emit(self,StateType.FOLLOW, {"target": nearest_entity})

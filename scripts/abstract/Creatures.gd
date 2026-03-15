@@ -10,6 +10,7 @@ enum RelationshipType {
 	FRIENDLY
 }
 
+@export var texture_corpse:Texture2D
 
 @export_category("Relationships")
 #If the enmity of another entity increases past this, this entity is hostile to it
@@ -91,8 +92,12 @@ func is_friendly_to(creature_type: EntityType) -> bool:
 
 func is_neutral_to(creature_type: EntityType) -> bool:
 	return _current_relationships[creature_type] == RelationshipType.NEUTRAL
-	
-	
+
+func form_mark(texture:Texture2D):
+	var new_disclaimer = load("res://prefabs/Mark.tscn").instantiate()
+	new_disclaimer.position = Vector2(0,-16)
+	new_disclaimer.texture = texture
+	add_child(new_disclaimer)
 
 func get_nearest_hostile(radius: float) -> Entity:
 	var entities = get_tree().get_nodes_in_group("Entity")
@@ -109,8 +114,14 @@ func other_process(delta:float):
 	shader_material.set_shader_parameter("extra_rot", extra_rot)
 	
 	if current_health <= 0:
-		modulate = Color(1.0, 0.0, 0.0, 1.0)
-		if max_hunger <= 0:
-			queue_free()
+		death()
+		queue_free()
 	else:
 		state_machine.update(delta)
+
+func death():
+	var new_corpse:Corpse = load("res://prefabs/entities/corpse.tscn").instantiate()
+	new_corpse.global_position = global_position + Vector2(0,-8)
+	new_corpse.food_amount = max_hunger
+	new_corpse.set_texture(texture_corpse)
+	Global.scene.add_child(new_corpse)

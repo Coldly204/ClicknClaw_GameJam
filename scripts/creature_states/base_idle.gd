@@ -19,4 +19,5 @@ func update(delta):
 		if master.state_machine.has_state(StateType.CHASE):
 			transitioned.emit(self,StateType.CHASE, {"target": nearest_entity})
 		elif master.state_machine.has_state(StateType.FLEE):
+			master.form_mark(load("res://assets/UI/red_exclamation.png"))
 			transitioned.emit(self,StateType.FLEE, {"target": nearest_entity})

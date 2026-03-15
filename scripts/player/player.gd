@@ -28,6 +28,14 @@ func _physics_process(delta: float) -> void:
 #Handles movement, climbing and throwing
 func motion_process(delta: float):
 	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
+	
+	if Input.is_action_just_pressed("1"):
+		Global.transition._dark()
+	if Input.is_action_just_pressed("2"):
+		Global.transition._light()
+	
+	
+	
 	if current_health <= 0:
 		velocity.x = 0
 		shader_move_tick = 0
@@ -47,7 +55,12 @@ func motion_process(delta: float):
 			
 			
 		if held_item:
-			if Input.is_action_pressed("cancel_use"):
+			if Input.is_action_just_pressed("eat"):
+				if held_item == "Meat":
+					current_hunger += 1
+					held_item = ""
+
+			elif Input.is_action_pressed("cancel_use"):
 				dotted_line.visible = false
 				using_item = false
 			elif Input.is_action_pressed("use_item"):
@@ -80,7 +93,6 @@ func walk(input: Vector2, delta: float):
 	sprite.scale.x = sign(velocity.x) if velocity.x != 0 else sprite.scale.x
 
 	shader_move_tick += (abs(input.x) - shader_move_tick) * delta * 10
-
 
 func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 	global_position = begin.lerp(end, climbing_progress)
@@ -140,8 +152,5 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 			break
 	return points
 	
-func eat():
-	if held_item == "Meat":
-		current_hunger += 1
-		held_item = ""
+
 		

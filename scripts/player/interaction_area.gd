@@ -10,6 +10,3 @@ func _physics_process(delta: float) -> void:
 		var interactable = areas[0]
 		if Input.is_action_just_pressed("interact"):
 			interactable.interact(master)
-	else:
-		if Input.is_action_just_pressed("interact"):
-			master.eat()

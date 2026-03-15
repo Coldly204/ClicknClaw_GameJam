@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://btrahgdnin504" path="res://scripts/abstract/interactable.gd" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://bnd6tks1gduyh" path="res://scripts/player/player_info.gd" id="6_gee14"]
-[ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://assets/UI/hunger_full.png" id="7_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="8_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cfm5bsrc78qc0" path="res://prefabs/entities/wolf.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
@@ -41,73 +39,6 @@ script = ExtResource("3_lbhrr")
 position = Vector2(63, -34)
 scale = Vector2(1, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288043993]
-
-[node name="PlayerInfo" type="Control" parent="CanvasLayer" unique_id=1349193366 node_paths=PackedStringArray("player", "hunger_list", "item_label")]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-size_flags_horizontal = 0
-size_flags_vertical = 8
-script = ExtResource("6_gee14")
-player = NodePath("../../Player")
-hunger_list = NodePath("VBoxContainer/MarginContainer/HBoxContainer")
-item_label = NodePath("VBoxContainer/TextureRect/HBoxContainer/Label2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PlayerInfo" unique_id=1110027672]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-alignment = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PlayerInfo/VBoxContainer" unique_id=601496047]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PlayerInfo/VBoxContainer/MarginContainer" unique_id=2104382208]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerInfo/VBoxContainer/MarginContainer/HBoxContainer" unique_id=396261854]
-layout_mode = 2
-texture = ExtResource("7_0tnpc")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PlayerInfo/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1403248963]
-layout_mode = 2
-texture = ExtResource("7_0tnpc")
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PlayerInfo/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1323721759]
-layout_mode = 2
-texture = ExtResource("7_0tnpc")
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/PlayerInfo/VBoxContainer/MarginContainer/HBoxContainer" unique_id=216983382]
-layout_mode = 2
-texture = ExtResource("7_0tnpc")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PlayerInfo/VBoxContainer" unique_id=1901929036]
-layout_mode = 2
-texture = ExtResource("8_vtaks")
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/PlayerInfo/VBoxContainer/TextureRect" unique_id=900167378]
-layout_mode = 0
-offset_right = 137.0
-offset_bottom = 50.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PlayerInfo/VBoxContainer/TextureRect/HBoxContainer" unique_id=321648884]
-layout_mode = 2
-text = "Item placeholder"
-
-[node name="Label2" type="Label" parent="CanvasLayer/PlayerInfo/VBoxContainer/TextureRect/HBoxContainer" unique_id=1188560164]
-layout_mode = 2
-text = "Item"
-
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
 position = Vector2(308, -39)
 
@@ -116,3 +47,12 @@ position = Vector2(435, -44)
 
 [node name="Wolf2" parent="." unique_id=881826921 instance=ExtResource("9_0tnpc")]
 position = Vector2(365, -49)
+
+[node name="UI" parent="." unique_id=555324190 instance=ExtResource("4_u5sy4")]
+
+[node name="PlayerInfo" parent="UI" index="0" unique_id=1918069214 node_paths=PackedStringArray("player", "health_list", "time_icon")]
+player = NodePath("../../Player")
+health_list = NodePath("StatusPanel/HealthBar")
+time_icon = NodePath("TimePanel/TimeIcon")
+
+[editable path="UI"]

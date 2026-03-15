@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qpvj0"]
 [ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_2tsmg"]
 [ext_resource type="Script" uid="uid://b2iggtnwc8ve6" path="res://scripts/player/interaction_area.gd" id="4_ohfey"]
-[ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://assets/UI/dotted_line.png" id="5_ss567"]
+[ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://sprites/UI/dotted_line.png" id="5_ss567"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xap6g"]
 resource_local_to_scene = true

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bitminjpp6yms"]
+[gd_scene format=3 uid="uid://dnrqc28riycys"]
 
 [ext_resource type="Script" uid="uid://srtywntolyx6" path="res://scripts/wolf/wolf.gd" id="1_i7tqy"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_cjmbn"]

@@ -1,7 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://47g6fnnr6m8i"]
 
+[ext_resource type="PackedScene" uid="uid://bsbj05gq4e3t4" path="res://prefabs/interactables/gronded_item.tscn" id="1_did67"]
 [ext_resource type="Texture2D" uid="uid://bsndofi5rxl7f" path="res://assets/tilemap/Tiles/Tiles.png" id="1_qp2yk"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_81yw3"]
+[ext_resource type="Texture2D" uid="uid://davdasp1k7sq1" path="res://assets/tilemap/Props/Stone.png" id="2_qvmtg"]
 [ext_resource type="PackedScene" uid="uid://b80v4cunbce88" path="res://prefabs/interactables/vines.tscn" id="2_vgpmu"]
 [ext_resource type="Texture2D" uid="uid://chn7gconjj614" path="res://assets/tilemap/Props/bush.png" id="4_e5o2m"]
 [ext_resource type="PackedScene" uid="uid://1brhpfxqay0s" path="res://prefabs/interactables/bush.tscn" id="4_luhvj"]
@@ -11,6 +13,12 @@ tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vgpmu"]
 tile_data = PackedInt32Array(0, 196611, 0, 65536, 3, 1, 131072, 3, 1, 196608, 3, 1, 262144, 3, 1, 327680, 3, 2, 1, 262147, 0, 65537, 65539, 1, 131073, 65539, 1, 196609, 65539, 1, 262145, 65539, 1, 327681, 65539, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmoxx"]
+texture = ExtResource("2_qvmtg")
+0:0/0 = 0
+0:0/0/custom_data_0 = ExtResource("1_did67")
+0:0/0/custom_data_1 = "Stone"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81yw3"]
 texture = ExtResource("1_qp2yk")
@@ -258,8 +266,11 @@ terrain_set_0/terrain_1/name = "Border"
 terrain_set_0/terrain_1/color = Color(0.94251084, 0.90781647, 0.80479085, 1)
 custom_data_layer_0/name = "Replace"
 custom_data_layer_0/type = 24
+custom_data_layer_1/name = "ItemName"
+custom_data_layer_1/type = 4
 sources/2 = SubResource("TileSetAtlasSource_81yw3")
 sources/3 = SubResource("TileSetAtlasSource_e5o2m")
 sources/4 = SubResource("TileSetAtlasSource_luhvj")
+sources/0 = SubResource("TileSetAtlasSource_lmoxx")
 pattern_0 = SubResource("TileMapPattern_81yw3")
 pattern_1 = SubResource("TileMapPattern_vgpmu")

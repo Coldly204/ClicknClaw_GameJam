@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 func motion_process(delta: float):
 	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if current_health <= 0:
+		velocity.x = 0
+		shader_move_tick = 0
 		modulate = Color(1.0, 0.0, 0.0, 1.0)
 		if max_hunger <= 0:
 			queue_free()
@@ -62,11 +64,12 @@ func motion_process(delta: float):
 				dotted_line.visible = false
 				if using_item:
 					throw(held_item)
+					held_item = ""
 					using_item = false
 					
-		if shader_material:
-			shader_material.set_shader_parameter("move_tick", shader_move_tick)
-			shader_material.set_shader_parameter("speed", move_speed * 3.0)
+	if shader_material:
+		shader_material.set_shader_parameter("move_tick", shader_move_tick)
+		shader_material.set_shader_parameter("speed", move_speed * 3.0)
 					
 	move_and_slide()
 	

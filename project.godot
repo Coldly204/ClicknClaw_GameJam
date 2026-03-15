@@ -74,9 +74,10 @@ use_item={
 [layer_names]
 
 2d_physics/layer_1="Ground"
-2d_physics/layer_2="Interaction"
+2d_physics/layer_2="Player Interaction"
 2d_physics/layer_3="Entity"
 2d_physics/layer_4="Player"
+2d_physics/layer_5="Animal Interaction"
 
 [physics]
 

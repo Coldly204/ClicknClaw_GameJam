@@ -1,5 +1,5 @@
 extends Area2D
-class_name InteractObject
+class_name InteractableObject
 
 @export var sprite:Sprite2D
 var map_pos:Vector2i

@@ -1,4 +1,4 @@
-extends InteractObject
+extends InteractableObject
 class_name SubInteractObject
 
 @export var master:Node2D

@@ -10,10 +10,8 @@
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
-[node name="Camera2D" type="Node2D" parent="." unique_id=1349929097]
-
-[node name="Camera2D" type="Camera2D" parent="Camera2D" unique_id=1657630754]
-position = Vector2(256, -128)
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1657630754]
+position = Vector2(511, -365)
 zoom = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693162686]

@@ -1,4 +1,4 @@
-extends InteractObject
+extends InteractableObject
 class_name Bush
 
 func interact(player:Player):

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b80v4cunbce88" path="res://prefabs/interactables/vines.tscn" id="2_vgpmu"]
 [ext_resource type="Texture2D" uid="uid://chn7gconjj614" path="res://assets/tilemap/Props/bush.png" id="4_e5o2m"]
 [ext_resource type="PackedScene" uid="uid://1brhpfxqay0s" path="res://prefabs/interactables/bush.tscn" id="4_luhvj"]
+[ext_resource type="PackedScene" uid="uid://boniatij8ieb0" path="res://prefabs/interactables/rabbit_burrow.tscn" id="5_qvmtg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
 tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
@@ -244,6 +245,8 @@ texture = ExtResource("2_81yw3")
 2:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
+8:1/0 = 0
+8:1/0/custom_data_0 = ExtResource("5_qvmtg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_luhvj"]
 texture = ExtResource("4_e5o2m")

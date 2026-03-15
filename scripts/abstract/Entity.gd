@@ -9,20 +9,20 @@ enum EntityType {
 
 @export_category("Attributes")
 @export var type: EntityType
-@export var max_health:int
-@export var max_hunger:int
-@export var walk_speed:float = 1.5
-@export var run_speed_multiplier:float = 1.5
+@export var max_health: int
+@export var max_hunger: int
+@export var walk_speed: float = 1.5
+@export var run_speed_multiplier: float = 1.5
 
 @export_category("In-game Attribute")
-@export var current_health:int
-@export var current_hunger:int
+@export var current_health: int
+@export var current_hunger: int
 
-var is_hiding:bool = false
+var is_hiding: bool = false
 
 func _ready() -> void:
 	current_health = max_health
-	add_to_group("Entity",true)
+	add_to_group("Entity", true)
 
 func get_nearby(radius: float, find_type: String = "Entity") -> Array[Node2D]:
 	"""
@@ -37,7 +37,7 @@ func get_nearby(radius: float, find_type: String = "Entity") -> Array[Node2D]:
 		var dist_to_entity = object.global_position.distance_to(global_position)
 		if dist_to_entity <= radius:
 			nearby_objects_array.append(object)
-	nearby_objects_array.sort_custom(func(a: Node2D,b: Node2D): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
+	nearby_objects_array.sort_custom(func(a: Node2D, b: Node2D): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
 	return nearby_objects_array
 
 func get_nearest_entity(radius: float) -> Entity:
@@ -47,13 +47,13 @@ func get_nearest_entity(radius: float) -> Entity:
 	return null
 
 func get_nearest_corpse(radius: float) -> Corpse:
-	var corpses = get_nearby(radius,"Corpse")
+	var corpses = get_nearby(radius, "Corpse")
 	if corpses.size() > 0:
 		return corpses[0] as Corpse
 	return null
 
-func is_player_near(dist:float):
-	var player:Player = get_player()
+func is_player_near(dist: float):
+	var player: Player = get_player()
 	var distance = player.global_position.distance_to(global_position)
 	return distance <= dist and not player.is_hiding
 
@@ -66,5 +66,5 @@ func _physics_process(delta: float) -> void:
 	velocity.y += delta * 960
 	move_and_slide()
 
-func other_process(delta:float):
+func other_process(delta: float):
 	pass

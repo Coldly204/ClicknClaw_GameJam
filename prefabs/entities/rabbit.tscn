@@ -21,8 +21,10 @@ shader_parameter/extra_rotation = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcshk"]
 radius = 18.027756
 
-[node name="Rabbit" unique_id=768621133 instance=ExtResource("1_xwpcf")]
+[node name="Rabbit" unique_id=768621133 node_paths=PackedStringArray("collider", "interaction_area") instance=ExtResource("1_xwpcf")]
 base_relationship = 0
+collider = NodePath("CollisionShape2D")
+interaction_area = NodePath("InteractionArea")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
 material = SubResource("ShaderMaterial_rcshk")

@@ -47,8 +47,11 @@ func intialise_relationships(relationship_dict: Dictionary[Entity.EntityType, Re
 	_neutral_enmity_value = (_threshold_till_hostile - _threshold_till_friendly)/2
 	_current_relationships = relationship_dict.duplicate()
 	for entity_type in EntityType.values():
-		if !_current_relationships.has(entity_type) and entity_type != self.type:
-			_current_relationships[entity_type] = base_relationship
+		if !_current_relationships.has(entity_type):
+			if entity_type == self.type:
+				_current_relationships[entity_type] = RelationshipType.NEUTRAL
+			else:
+				_current_relationships[entity_type] = base_relationship
 	for entity_type in _current_relationships.keys():
 		update_enmity_value(entity_type)
 		
@@ -99,13 +102,6 @@ func get_enmity_value_regarding(creature_type: EntityType):
 	return _current_enmity_values[creature_type]
 
 
-func is_hostile_nearby(detect_range: float) -> bool:
-	var nearest_entity = get_nearest_entity(detect_range)
-	if nearest_entity:
-		if is_hostile_to(nearest_entity.type):
-			return true
-	return false
-
 func is_hostile_to(creature_type: EntityType) -> bool:
 	return _current_relationships[creature_type] == RelationshipType.HOSTILE
 
@@ -122,13 +118,12 @@ func form_mark(texture:Texture2D):
 	add_child(new_disclaimer)
 
 func get_nearest_hostile(radius: float) -> Entity:
-	var entities = get_tree().get_nodes_in_group("Entity")
-	for entity: Entity in entities:
-		if entity == self or entity.current_health <= 0 or entity.is_hiding:
-			continue
-		var dist_to_entity = entity.global_position.distance_to(global_position)
-		if dist_to_entity <= radius and is_hostile_to(entity.type):
-			return entity
+	var entities = get_nearby(radius)
+	if entities.size() == 0:
+		return null
+	var hostiles = entities.filter(func(entity: Entity): return is_hostile_to(entity.type))
+	if hostiles:
+		return hostiles[0]
 	return null
 	
 func other_process(delta:float):

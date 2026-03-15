@@ -29,6 +29,10 @@ Entity=""
 Scene=""
 Player=""
 
+[gui]
+
+theme/custom_font="uid://dqf5qr2qiv00q"
+
 [input]
 
 up={

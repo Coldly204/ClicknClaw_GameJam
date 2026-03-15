@@ -6,3 +6,4 @@
 [node name="Mark" type="Sprite2D" unique_id=1789506707]
 texture = ExtResource("1_v3wjs")
 script = ExtResource("1_64oqa")
+duration = 0.5

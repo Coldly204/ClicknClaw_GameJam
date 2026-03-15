@@ -53,7 +53,7 @@ func motion_process(delta: float):
 				using_item = false
 			elif Input.is_action_pressed("use_item"):
 				using_item = true
-				if held_item == "Stone":
+				if held_item == "Stone" or held_item == "Meat":
 					dotted_line.visible = true
 					mouse_pos = get_local_mouse_position()
 					dotted_line.clear_points()
@@ -96,9 +96,15 @@ func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 func throw(item: String):
 	match (item):
 		"Stone":
-			var new_stone = load("res://prefabs/items/stone.tscn").instantiate()
+			var new_stone = load("res://prefabs/items/ThrowingItem.tscn").instantiate()
 			new_stone.velocity = mouse_pos.normalized() * 480
-			print(mouse_pos.normalized() * 480)
+			new_stone.item_name = "Stone"
+			new_stone.global_position = global_position - Vector2(0, 16)
+			Global.scene.add_child(new_stone)
+		"Meat":
+			var new_stone = load("res://prefabs/items/ThrowingItem.tscn").instantiate()
+			new_stone.velocity = mouse_pos.normalized() * 480
+			new_stone.item_name = "Meat"
 			new_stone.global_position = global_position - Vector2(0, 16)
 			Global.scene.add_child(new_stone)
 
@@ -134,7 +140,10 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 		points.append(next_pos)
 		if results != []:
 			break
-				
-
-
 	return points
+	
+func eat():
+	if held_item == "Meat":
+		current_hunger += 1
+		held_item = ""
+		

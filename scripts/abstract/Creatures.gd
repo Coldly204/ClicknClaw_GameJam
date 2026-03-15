@@ -23,6 +23,7 @@ enum RelationshipType {
 @export_category("Components")
 @export var appearance:Node2D
 @export var collision:CollisionShape2D
+@export var interaction_area:Area2D
 @export var state_machine:StateMachine
 @export var animation_player:AnimationPlayer
 

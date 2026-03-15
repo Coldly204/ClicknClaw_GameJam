@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://cgfv32vt7a1o4"]
 
-[ext_resource type="Script" uid="uid://c6a0kp4cwvr8m" path="res://scripts/items/stone.gd" id="1_jwlkt"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xgrps"]
-radius = 5.0
+[ext_resource type="Script" uid="uid://c6a0kp4cwvr8m" path="res://scripts/items/ThrowingItem.gd" id="1_h5kpe"]
+[ext_resource type="Texture2D" uid="uid://dmuxinh8wadkv" path="res://assets/tilemap/Props/Meat.png" id="2_xabpj"]
 
 [sub_resource type="Gradient" id="Gradient_nqypu"]
 offsets = PackedFloat32Array(0.09490085, 0.14872521, 1)
@@ -14,10 +12,18 @@ gradient = SubResource("Gradient_nqypu")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Stone" type="CharacterBody2D" unique_id=1599888594]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgrps"]
+radius = 5.0
+
+[node name="ThrowingItem" type="CharacterBody2D" unique_id=1599888594 node_paths=PackedStringArray("sprite")]
 collision_layer = 0
 collision_mask = 5
-script = ExtResource("1_jwlkt")
+script = ExtResource("1_h5kpe")
+item_texture = Dictionary[String, Texture2D]({
+"Meat": ExtResource("2_xabpj"),
+"Stone": SubResource("GradientTexture2D_vvpja")
+})
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=778341399]
 shape = SubResource("CircleShape2D_xgrps")

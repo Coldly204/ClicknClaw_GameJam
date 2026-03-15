@@ -1,4 +1,4 @@
-extends Area2D
+extends InteractObject
 class_name Bush
 
 func interact(player:Player):

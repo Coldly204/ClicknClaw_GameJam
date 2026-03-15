@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
+<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/creature_states/base_flee.gd" id="5_dup2t"]
+=======
 [ext_resource type="Script" uid="uid://fhubotd6tstg" path="res://scripts/abstract/StateMachine.gd" id="3_6sd3u"]
 [ext_resource type="Script" uid="uid://clgt2vaixhdns" path="res://scripts/rabbit/states/idle.gd" id="4_sg1ma"]
 [ext_resource type="Script" uid="uid://qi40rbp7fy6w" path="res://scripts/rabbit/states/flee.gd" id="5_dup2t"]
+[ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="6_6hjdx"]
+>>>>>>> feat-creatures
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2y4c"]
 resource_local_to_scene = true

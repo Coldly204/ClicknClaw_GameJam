@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bgrlfroxcgtgx"]
+
+[ext_resource type="Shader" uid="uid://hvj4aavw0qwm" path="res://scripts/Transition/game.gdshader" id="1_f0i4t"]
+[ext_resource type="Script" uid="uid://iprtvcnmvn7i" path="res://scripts/Transition/transition.gd" id="2_px735"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvuet"]
+shader = ExtResource("1_f0i4t")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 10.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = 0.0
+shader_parameter/disable_pixel = false
+
+[node name="Transition" type="ColorRect" unique_id=515674955]
+material = SubResource("ShaderMaterial_kvuet")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_px735")

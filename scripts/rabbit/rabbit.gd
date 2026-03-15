@@ -8,6 +8,7 @@ func interact(player:Player):
 			player.held_item = "Meat"
 		else:
 			var new_meat:PickableItem = load("res://prefabs/interactables/grounded_item.tscn").instantiate()
+			
 			new_meat.item_name = "Meat"
 			new_meat.global_position = global_position - Vector2(0,8)
 			new_meat.set_texture(new_meat.item_texture[new_meat.item_name])

@@ -88,7 +88,6 @@ func walk(input: Vector2, delta: float):
 
 	shader_move_tick += (abs(input.x) - shader_move_tick) * delta * 10
 
-
 func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 	global_position = begin.lerp(end, climbing_progress)
 	climbing_progress = clamp(climbing_progress, 0, 1)

@@ -5,3 +5,4 @@ class_name SubInteractObject
 
 func interact(player:Player):
 	master.interact(player)
+	

@@ -28,35 +28,45 @@ func _physics_process(delta: float) -> void:
 #Handles movement, climbing and throwing
 func motion_process(delta: float):
 	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
-	if climbing:
-		var begin: Vector2 = climbing_vines[0].global_position
-		var end: Vector2 = climbing_vines[-1].global_position
-		climb(begin, end, input, delta)
+	if current_health <= 0:
+		modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if max_hunger <= 0:
+			queue_free()
 	else:
-		walk(input, delta)
-
-	if shader_material:
-		shader_material.set_shader_parameter("move_tick", shader_move_tick)
-		shader_material.set_shader_parameter("speed", move_speed * 3.0)
-		
-	if held_item:
-		if Input.is_action_pressed("cancel_use"):
-			dotted_line.visible = false
-			using_item = false
-		elif Input.is_action_pressed("use_item"):
-			using_item = true
-			if held_item == "Stone":
-				dotted_line.visible = true
-				mouse_pos = get_local_mouse_position()
-				dotted_line.clear_points()
-				var points = predict_trajectory(Vector2(0, -16), mouse_pos.normalized() * 480, 80, delta)
-				for i in points:
-					dotted_line.add_point(i)
+		sprite.visible = true
+		if climbing:
+			var begin: Vector2 = climbing_vines[0].global_position
+			var end: Vector2 = climbing_vines[-1].global_position
+			climb(begin, end, input, delta)
+		elif hiding:
+			sprite.visible = false
 		else:
-			dotted_line.visible = false
-			if using_item:
-				throw(held_item)
+			walk(input, delta)
+			
+			
+			
+		if held_item:
+			if Input.is_action_pressed("cancel_use"):
+				dotted_line.visible = false
 				using_item = false
+			elif Input.is_action_pressed("use_item"):
+				using_item = true
+				if held_item == "Stone":
+					dotted_line.visible = true
+					mouse_pos = get_local_mouse_position()
+					dotted_line.clear_points()
+					var points = predict_trajectory(Vector2(0, -16), mouse_pos.normalized() * 480, 80, delta)
+					for i in points:
+						dotted_line.add_point(i)
+			else:
+				dotted_line.visible = false
+				if using_item:
+					throw(held_item)
+					using_item = false
+					
+		if shader_material:
+			shader_material.set_shader_parameter("move_tick", shader_move_tick)
+			shader_material.set_shader_parameter("speed", move_speed * 3.0)
 					
 	move_and_slide()
 	
@@ -66,7 +76,7 @@ func walk(input: Vector2, delta: float):
 	velocity.x += input.x * delta * 420 * move_speed
 	velocity.x *= 0.9
 	velocity.y += delta * 960
-	sprite.scale.x = sign(velocity.x) if velocity.x != -1 else sprite.scale.x
+	sprite.scale.x = sign(velocity.x) if velocity.x != 0 else sprite.scale.x
 
 	shader_move_tick += (abs(input.x) - shader_move_tick) * delta * 10
 
@@ -85,6 +95,7 @@ func throw(item: String):
 		"Stone":
 			var new_stone = load("res://prefabs/items/stone.tscn").instantiate()
 			new_stone.velocity = mouse_pos.normalized() * 480
+			print(mouse_pos.normalized() * 480)
 			new_stone.global_position = global_position - Vector2(0, 16)
 			Global.scene.add_child(new_stone)
 
@@ -109,9 +120,9 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 		# 更新位置
 		var next_pos = pos + vel * step_time
 		pos = next_pos
+
 		
 		var query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
-
 		
 		query.position = global_position + next_pos
 		query.collision_mask = 1
@@ -120,6 +131,7 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 		points.append(next_pos)
 		if results != []:
 			break
+				
 
 
 	return points

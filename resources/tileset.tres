@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bsndofi5rxl7f" path="res://assets/tilemap/Tiles/Tiles.png" id="1_qp2yk"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_81yw3"]
 [ext_resource type="PackedScene" uid="uid://b80v4cunbce88" path="res://prefabs/interactables/vines.tscn" id="2_vgpmu"]
+[ext_resource type="Texture2D" uid="uid://chn7gconjj614" path="res://assets/tilemap/Props/bush.png" id="4_e5o2m"]
+[ext_resource type="PackedScene" uid="uid://1brhpfxqay0s" path="res://prefabs/interactables/bush.tscn" id="4_luhvj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
 tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
@@ -235,6 +237,16 @@ texture = ExtResource("2_81yw3")
 6:2/0 = 0
 7:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_luhvj"]
+texture = ExtResource("4_e5o2m")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/custom_data_0 = ExtResource("4_luhvj")
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
@@ -248,5 +260,6 @@ custom_data_layer_0/name = "Replace"
 custom_data_layer_0/type = 24
 sources/2 = SubResource("TileSetAtlasSource_81yw3")
 sources/3 = SubResource("TileSetAtlasSource_e5o2m")
+sources/4 = SubResource("TileSetAtlasSource_luhvj")
 pattern_0 = SubResource("TileMapPattern_81yw3")
 pattern_1 = SubResource("TileMapPattern_vgpmu")

@@ -19,8 +19,10 @@ shader_parameter/move_tick = 1.0
 shader_parameter/clr = Color(0, 0, 0, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 1.0
+shader_parameter/extra_rot = 0.0
 
 [node name="Rabbit" type="CharacterBody2D" unique_id=768621133 node_paths=PackedStringArray("appearance", "collision", "state_machine") groups=["Entity"]]
+collision_layer = 4
 script = ExtResource("1_rdgxo")
 default_enmity_values = Dictionary[int, float]({
 0: 1.0,
@@ -30,7 +32,9 @@ appearance = NodePath("Appearance")
 collision = NodePath("CollisionShape2D")
 state_machine = NodePath("StateMachine")
 max_health = 1
-move_speed = 3.0
+max_hunger = 1
+move_speed = 2.0
+type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226321371]
 position = Vector2(0, -10)

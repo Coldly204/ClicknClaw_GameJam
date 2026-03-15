@@ -10,6 +10,9 @@ uniform vec4 clr : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform int type : hint_enum("Disable", "Round", "Square") = 2;
 uniform float thickness = 1.0;
 
+uniform float extra_rot : hint_range(-5.0,5.0) = 0.0;
+
+
 const vec2[8] DIRECTIONS = {
 	vec2(1.0, 0.0),
 	vec2(0.0, 1.0),
@@ -49,12 +52,15 @@ void vertex() {
 	VERTEX.x -= move_tick * drag * 0.1;
 	
 	vec2 vertex_offset = VERTEX.xy - pivot;
-	float angle = sin(TIME*speed*2.0)*0.1 * move_tick;
+	float angle = sin(TIME*speed*2.0)*0.1 * move_tick + extra_rot;
 	float c = cos(angle);
 	float s = sin(angle);
 	mat2 rot_matrix = mat2(vec2(c,-s),vec2(s,c));
 	vertex_offset = rot_matrix * vertex_offset;
 	VERTEX.xy = vertex_offset + pivot;
+	
+	
+	
 	}
 
 void fragment() {

@@ -27,5 +27,6 @@ func update_item():
 	item_label.text = player.held_item
 				
 func _physics_process(delta: float) -> void:
-	update_hunger()
-	update_item()
+	if player:
+		update_hunger()
+		update_item()

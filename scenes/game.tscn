@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://vjig80qbt0n1" path="res://sprites/UI/'F'.png" id="14_ir15t"]
 [ext_resource type="PackedScene" uid="uid://boniatij8ieb0" path="res://prefabs/interactables/rabbit_burrow.tscn" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://juv67pfs5tdn" path="res://sprites/bg.png" id="16_ca42v"]
-[ext_resource type="PackedScene" uid="uid://cyl3a6kq8v0fd" path="res://prefabs/entities/lion.tscn" id="17_rysoc"]
+[ext_resource type="PackedScene" path="res://prefabs/entities/lion.tscn" id="17_rysoc"]
 
 [sub_resource type="Animation" id="Animation_dinhu"]
 length = 0.001
@@ -322,7 +322,7 @@ other_burrow = NodePath("../RabbitBurrow")
 position = Vector2(1224, -48)
 
 [node name="Lion" parent="." unique_id=956563715 instance=ExtResource("17_rysoc")]
-position = Vector2(251, -79)
+position = Vector2(1248, -400)
 
 [connection signal="changing_time_period" from="Day & Night" to="UI/PlayerInfo" method="update_time_ui"]
 

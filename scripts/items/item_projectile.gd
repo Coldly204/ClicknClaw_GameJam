@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 			"Stone":
 				if not collider is Player:
 					if collider is Creature :
-						collider.current_health -= 1
+						(collider as Entity).take_damage(1)
 						queue_free()
 					else:
 						item.global_position = get_last_slide_collision().get_position() + Vector2(0,-8)

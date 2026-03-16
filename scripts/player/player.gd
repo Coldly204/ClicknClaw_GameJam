@@ -55,12 +55,14 @@ func motion_process(delta: float):
 	if climbing:
 		climb(climb_start, climb_end, input, delta)
 	elif is_hiding:
+		grounded = false
 		sprite.visible = false
 		if Input.is_action_just_pressed("eat"):
 			if current_hunger > 3:
 				sleep()
 	else:
 		walk(input, delta)
+		grounded = is_on_floor()
 		
 	if held_item:
 		var held_item_name = held_item.item_name
@@ -92,7 +94,6 @@ func motion_process(delta: float):
 		shader_material.set_shader_parameter("speed", base_walk_speed * 3.0)
 					
 	move_and_slide()
-	grounded = is_on_floor()
 	if Input.is_action_pressed("jump") and (grounded or climbing):
 		jump()
 

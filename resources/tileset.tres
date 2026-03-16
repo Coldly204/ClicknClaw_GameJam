@@ -19,6 +19,12 @@ texture = ExtResource("2_qvmtg")
 0:0/0/custom_data_0 = &"pickup"
 0:0/0/custom_data_1 = ExtResource("1_luhvj")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_did67"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6dy5u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_luhvj"]
@@ -56,7 +62,7 @@ texture = ExtResource("1_qp2yk")
 0:0/0/terrains_peering_bit/right_side = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
 0:0/0/terrains_peering_bit/bottom_side = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6dy5u")
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_did67")
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
@@ -66,7 +72,7 @@ texture = ExtResource("1_qp2yk")
 1:0/0/terrains_peering_bit/bottom_side = 0
 1:0/0/terrains_peering_bit/bottom_left_corner = 0
 1:0/0/terrains_peering_bit/left_side = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6dy5u")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_did67")
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
@@ -74,7 +80,7 @@ texture = ExtResource("1_qp2yk")
 2:0/0/terrains_peering_bit/bottom_side = 0
 2:0/0/terrains_peering_bit/bottom_left_corner = 0
 2:0/0/terrains_peering_bit/left_side = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6dy5u")
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_did67")
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

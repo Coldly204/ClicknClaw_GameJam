@@ -293,6 +293,10 @@ libraries/ = SubResource("AnimationLibrary_rysoc")
 material = SubResource("CanvasItemMaterial_ca42v")
 position = Vector2(63, -34)
 scale = Vector2(1, 1)
+max_health = 5
+max_hunger = 5
+current_health = 5
+current_hunger = 5
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1657630754]
 position = Vector2(1, -14)

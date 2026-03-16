@@ -87,6 +87,7 @@ shape = SubResource("CircleShape2D_83v73")
 debug_color = Color(0.9460127, 5.968213e-06, 0.592087, 0.41960785)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=265342237]
+visible = false
 points = PackedVector2Array(0, -16, 37.572197, -6.6069565, 64, 0)
 width = 2.0
 texture = ExtResource("5_ss567")

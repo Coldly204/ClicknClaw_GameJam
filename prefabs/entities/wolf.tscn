@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://csigeje5623m8" path="res://scripts/creature_states/wolf_follow.gd" id="5_avmqp"]
 [ext_resource type="Script" uid="uid://csbaspwdgcfcj" path="res://scripts/creature_states/wolf_foraging.gd" id="6_cjmbn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7xg8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjmbn"]
 resource_local_to_scene = true
 shader = ExtResource("2_cjmbn")
 shader_parameter/pivot = Vector2(0, 0)
@@ -32,7 +32,7 @@ default_relationships = Dictionary[int, int]({
 target_desired_distance = 10.0
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_n7xg8")
+material = SubResource("ShaderMaterial_cjmbn")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 text = "Wolf"

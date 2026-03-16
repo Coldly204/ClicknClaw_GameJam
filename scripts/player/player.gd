@@ -87,7 +87,7 @@ func motion_process(delta: float):
 					
 	move_and_slide()
 	grounded = is_on_floor()
-	if Input.is_action_pressed("jump") and grounded:
+	if Input.is_action_pressed("jump") and (grounded or climbing):
 		jump()
 
 	
@@ -113,6 +113,7 @@ func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 	shader_move_tick += (abs(input.y) - shader_move_tick) * delta * 10
 
 func jump():
+	climbing = false
 	velocity.y = -1 * jump_height * Global.TILEMAP_SIZE^2 
 
 

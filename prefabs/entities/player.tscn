@@ -53,6 +53,7 @@ radius = 9.25
 radius = 11.752659
 
 [node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "collision_shape", "dotted_line") groups=["Entity"]]
+texture_filter = 3
 scale = Vector2(4, 4)
 collision_layer = 8
 script = ExtResource("1_j0cl5")

@@ -6,7 +6,6 @@ class_name Predator
 func other_process(delta:float):
 	super.other_process(delta)
 
-
 func attack():
 	var hit_entities = hitbox.get_overlapping_bodies()
 	for hit_entity in hit_entities:

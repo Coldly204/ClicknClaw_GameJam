@@ -21,7 +21,7 @@ shader_parameter/extra_rotation = 0.0
 [node name="Lion" unique_id=768621133 instance=ExtResource("1_40glv")]
 base_relationship = 0
 type = 3
-max_health = 8
+max_health = 5
 max_hunger = 3
 base_walk_speed = 1.0
 corpse_texture = ExtResource("2_2ofoc")

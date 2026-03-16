@@ -54,13 +54,15 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="VBoxContainer" unique_id=1000266607]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_brbbq")
-theme_override_font_sizes/font_size = 164
-text = "Title"
+theme_override_font_sizes/font_size = 133
+text = "Fight or Flight"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1769207980]
 custom_minimum_size = Vector2(220, 52)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
 button_mask = 5
 text = "Start Game"

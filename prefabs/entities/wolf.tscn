@@ -29,6 +29,7 @@ base_relationship = 0
 default_relationships = Dictionary[int, int]({
 2: 2
 })
+max_health = 2
 corpse_texture = ExtResource("3_7oyim")
 
 [node name="NavigationAgent2D" parent="." index="1" unique_id=103564601]

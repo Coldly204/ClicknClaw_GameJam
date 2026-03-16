@@ -10,10 +10,9 @@ var burrow_active = true
 func _on_rabbit_enter(area: Area2D) -> void:
 	if (area.get_parent() is Rabbit):
 		if burrow_active:
-			(area.get_parent() as Node2D).global_position = other_burrow.global_position
 			other_burrow.burrow_active = false
-			other_burrow.collision_shape.set_deferred("disabled",true)
-			await get_tree().create_timer(1).timeout
-			other_burrow.burrow_active = true
-			other_burrow.collision_shape.set_deferred("disabled",false)
+			(area.get_parent() as Node2D).global_position = other_burrow.global_position
+
+func _on_rabbit_exit(area: Area2D) -> void:
+	burrow_active = true
 

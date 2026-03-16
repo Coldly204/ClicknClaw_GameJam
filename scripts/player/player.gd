@@ -10,7 +10,9 @@ var climb_end: Vector2
 
 @export var held_item: Item
 @export var climb_speed = 10
+@export var jump_height = 1
 
+var grounded: bool
 
 @export_category("Components")
 @export var sprite: AnimatedSprite2D
@@ -38,8 +40,6 @@ func motion_process(delta: float):
 		Global.transition._dark()
 	if Input.is_action_just_pressed("2"):
 		Global.transition._light()
-	
-	
 	
 	if current_health <= 0:
 		velocity.x = 0
@@ -86,6 +86,10 @@ func motion_process(delta: float):
 		shader_material.set_shader_parameter("speed", base_walk_speed * 3.0)
 					
 	move_and_slide()
+	grounded = is_on_floor()
+	if Input.is_action_pressed("jump") and grounded:
+		jump()
+
 	
 func walk(input: Vector2, delta: float):
 	sprite.animation = "default"
@@ -108,6 +112,10 @@ func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 	global_position.y = clamp(global_position.y, end.y, begin.y)
 	shader_move_tick += (abs(input.y) - shader_move_tick) * delta * 10
 
+func jump():
+	velocity.y = -1 * jump_height * Global.TILEMAP_SIZE^2 
+
+
 func hide_in_bush(tile_pos):
 	is_hiding = not is_hiding
 	velocity = Vector2.ZERO
@@ -121,6 +129,8 @@ func choose_tile_interaction(action_name: StringName, tile_pos: Vector2, tile_ma
 			print("CLIMB START", climb_start)
 			print("CLIMB END", climb_end)
 			climbing = not climbing
+			if (!climbing):
+				jump()
 		"hide":
 			hide_in_bush(tile_pos)
 		"pickup":

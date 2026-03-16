@@ -7,8 +7,12 @@ const DAY_DURATION_SECS = 10
 const SUNSET_DURATION_SECS = 5
 const TOTAL_DAYS = 5
 
+const DAY_HUNGER_LOSS = 3
+
 var is_night: bool = false
 var current_day = 1
+
+var player: Player
 
 signal finished_day
 

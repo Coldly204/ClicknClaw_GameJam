@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b3bptux15qccw"]
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_hto5h"]
-[ext_resource type="Script" uid="uid://dqcu8mw6aftxe" path="res://scripts/abstract/predator.gd" id="2_3k8ej"]
-[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qhbac"]
+[ext_resource type="Script" path="res://scripts/abstract/predator.gd" id="2_3k8ej"]
+[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_qhbac"]
 [ext_resource type="Script" uid="uid://018qytdajrlo" path="res://scripts/creature_states/base_chase.gd" id="3_gm67o"]
 [ext_resource type="Animation" uid="uid://cv1ygrtdm1h4w" path="res://resources/animations/attack.res" id="5_fa6ax"]
 

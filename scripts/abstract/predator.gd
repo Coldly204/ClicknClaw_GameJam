@@ -8,10 +8,10 @@ func other_process(delta:float):
 
 
 func attack():
-	var hit_entity = hitbox.get_overlapping_bodies()
-	for i in hit_entity:
-		if i != self and i is Entity:
-			i.current_health -= 1
+	var hit_entities = hitbox.get_overlapping_bodies()
+	for hit_entity in hit_entities:
+		if hit_entity != self and hit_entity is Entity:
+			(hit_entity as Entity).take_damage(1)
 
 func eat():
 	var hit_entity = hitbox.get_overlapping_bodies()

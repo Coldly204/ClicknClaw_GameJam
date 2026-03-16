@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
-[ext_resource type="Script" path="res://scenes/tutorial_ui.gd" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://biv2rg6st4ca5" path="res://scripts/ui/tutorial_ui.gd" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dwsciot7dck7i" path="res://sprites/UI/throw_rock_tutorial.png" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://mmnp2atuvn3y" path="res://sprites/UI/mouse-left.png" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dibbbpigyen1u" path="res://sprites/UI/cancel_throw.png" id="10_kvpfn"]
@@ -120,10 +120,6 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
-[node name="Camera2D2" type="Camera2D" parent="." unique_id=1657630754]
-position = Vector2(276, -130)
-zoom = Vector2(2, 2)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693162686]
 visible = false
 position = Vector2(-1, -49)
@@ -147,6 +143,10 @@ position = Vector2(63, -34)
 scale = Vector2(1, 1)
 max_health = 5
 max_hunger = 5
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1657630754]
+position = Vector2(213, -96)
+zoom = Vector2(2, 2)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
 position = Vector2(308, -39)

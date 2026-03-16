@@ -113,7 +113,7 @@ func is_neutral_to(creature_type: EntityType) -> bool:
 	return _current_relationships[creature_type] == RelationshipType.NEUTRAL
 
 func form_mark(texture:Texture2D):
-	var new_disclaimer = load("res://prefabs/Mark.tscn").instantiate()
+	var new_disclaimer = load("res://prefabs/other/creature_exclamation_mark.tscn").instantiate()
 	new_disclaimer.position = Vector2(0,-16)
 	new_disclaimer.texture = texture
 	add_child(new_disclaimer)

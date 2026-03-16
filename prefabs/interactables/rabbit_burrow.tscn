@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boniatij8ieb0"]
 
-[ext_resource type="Script" uid="uid://dkyrj8r748xpp" path="res://scripts/rabbit_burrow.gd" id="1_y8e2e"]
+[ext_resource type="Script" uid="uid://dkyrj8r748xpp" path="res://scripts/interactable_tiles/rabbit_burrow.gd" id="1_y8e2e"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_35pty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35pty"]

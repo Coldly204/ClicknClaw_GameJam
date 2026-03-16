@@ -28,6 +28,7 @@ var mouse_pos: Vector2
 	
 func _ready() -> void:
 	climb_speed = 10
+	Global.player = self
 	add_to_group("Player",true)
 
 func _physics_process(delta: float) -> void:
@@ -99,7 +100,6 @@ func motion_process(delta: float):
 
 
 func sleep():
-	Global.transition.fade_to_black()
 	Global.finished_day.emit()
 	
 	

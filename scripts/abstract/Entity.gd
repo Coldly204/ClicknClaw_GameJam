@@ -18,6 +18,8 @@ enum EntityType {
 @export var current_health: int
 @export var current_hunger: int
 
+@export var corpse_texture:Texture2D
+
 var is_hiding: bool = false
 var walk_speed_randomness: float = 0.5
 
@@ -67,6 +69,30 @@ func _physics_process(delta: float) -> void:
 	velocity.x *= 0.9
 	velocity.y += delta * 960
 	move_and_slide()
+
+func take_damage(dmg: int):
+	current_health -= dmg
+	current_health = clamp(current_health,0,max_health)
+	if current_health == 0:
+		die()
+
+func lose_hunger(value: int):
+	current_hunger -= value
+	current_hunger = clamp(current_hunger,0,max_hunger)
+	if current_hunger == 0:
+		die()
+
+func heal(health: int):
+	take_damage(-health)
+
+func die():
+	var new_corpse:Corpse = load("res://prefabs/entities/corpse.tscn").instantiate()
+	new_corpse.global_position = global_position + Vector2(0,-8)
+	new_corpse.food_amount = max_hunger
+	if corpse_texture:
+		new_corpse.set_texture(corpse_texture)
+	Global.scene.add_child(new_corpse)
+	queue_free()
 
 func other_process(delta: float):
 	pass

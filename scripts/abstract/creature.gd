@@ -10,7 +10,6 @@ enum RelationshipType {
 	FRIENDLY
 }
 
-@export var corpse_texture:Texture2D
 
 @export_category("Relationships")
 #Default enmity value, if unspecified
@@ -129,15 +128,6 @@ func get_nearest_hostile(radius: float) -> Entity:
 	
 func other_process(delta:float):
 	shader_material.set_shader_parameter("extra_rotation", extra_rotation)
-	if current_health <= 0:
-		die()
-		queue_free()
-	else:
-		state_machine.update(delta)
+	state_machine.update(delta)
 
-func die():
-	var new_corpse:Corpse = load("res://prefabs/entities/corpse.tscn").instantiate()
-	new_corpse.global_position = global_position + Vector2(0,-8)
-	new_corpse.food_amount = max_hunger
-	new_corpse.set_texture(corpse_texture)
-	Global.scene.add_child(new_corpse)
+

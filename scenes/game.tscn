@@ -293,12 +293,8 @@ libraries/ = SubResource("AnimationLibrary_rysoc")
 material = SubResource("CanvasItemMaterial_ca42v")
 position = Vector2(63, -34)
 scale = Vector2(1, 1)
-climb_speed = null
-type = null
 max_health = 5
 max_hunger = 5
-base_walk_speed = null
-run_speed_multiplier = null
 current_health = 5
 current_hunger = 5
 
@@ -320,9 +316,6 @@ other_burrow = NodePath("../RabbitBurrow2")
 [node name="RabbitBurrow2" parent="Burrow Pair" unique_id=839022411 node_paths=PackedStringArray("other_burrow") instance=ExtResource("14_trtic")]
 position = Vector2(888, -40)
 other_burrow = NodePath("../RabbitBurrow")
-
-[node name="Wolf" parent="." unique_id=970435845 instance=ExtResource("6_p57ef")]
-position = Vector2(1144, -40)
 
 [node name="Wolf2" parent="." unique_id=912174629 instance=ExtResource("6_p57ef")]
 position = Vector2(1224, -48)

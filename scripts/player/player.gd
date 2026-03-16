@@ -38,9 +38,9 @@ func motion_process(delta: float):
 	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
 	if Input.is_action_just_pressed("1"):
-		Global.transition._dark()
+		Global.transition.fade_to_black()
 	if Input.is_action_just_pressed("2"):
-		Global.transition._light()
+		Global.transition.reset()
 
 	
 	if current_health <= 0:
@@ -56,6 +56,9 @@ func motion_process(delta: float):
 		climb(climb_start, climb_end, input, delta)
 	elif is_hiding:
 		sprite.visible = false
+		if Input.is_action_just_pressed("eat"):
+			if current_hunger > 3:
+				sleep()
 	else:
 		walk(input, delta)
 		
@@ -93,6 +96,11 @@ func motion_process(delta: float):
 	if Input.is_action_pressed("jump") and (grounded or climbing):
 		jump()
 
+
+func sleep():
+	Global.transition.fade_to_black()
+	Global.finished_day.emit()
+	
 	
 func walk(input: Vector2, delta: float):
 	sprite.animation = "default"
@@ -119,7 +127,6 @@ func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 func jump():
 	climbing = false
 	velocity.y = -1 * jump_height * Global.TILEMAP_SIZE^2 
-
 
 func hide_in_bush(tile_pos):
 	is_hiding = not is_hiding
@@ -149,7 +156,6 @@ func pickup_item(item, tilemap_coords):
 	item = item as Item
 	item.interact(self)
 	item_changed.emit()
-			
 
 func get_furthest_interactable_tile_position(start_tile_pos: Vector2i, direction: Vector2i, tile_map_layer: TileMapLayer):
 	var offset := direction * Global.TILEMAP_SIZE
@@ -175,15 +181,6 @@ func throw(item: Item):
 	return
 
 	
-
-func bezier(start: Vector2, end: Vector2, t: float):
-	var direction = (end - start).normalized()
-	var mid_point = (end + start) / 2
-	
-	mid_point.y -= 10000 / clamp(start.distance_to(end), 60, 99999)
-
-	return (1 - t) ** 2 * start + 2 * (1 - t) * t * mid_point + (t ** 2) * end
-	
 func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, step_time: float) -> PackedVector2Array:
 	var points = PackedVector2Array()
 	points.append(initial_pos) # 将起点加入数组
@@ -197,7 +194,6 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 		var next_pos = pos + vel * step_time
 		pos = next_pos
 
-		
 		var query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 		
 		query.position = global_position + next_pos
@@ -208,6 +204,5 @@ func predict_trajectory(initial_pos: Vector2, initial_vel: Vector2, steps: int, 
 		if results != []:
 			break
 	return points
-	
 
 		

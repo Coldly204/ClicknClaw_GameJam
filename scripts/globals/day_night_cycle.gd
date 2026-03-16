@@ -26,6 +26,8 @@ func start_day():
 	timer.start()
 
 
+
+
 func start_night():
 	Global.is_night = true
 	changing_time_period.emit()

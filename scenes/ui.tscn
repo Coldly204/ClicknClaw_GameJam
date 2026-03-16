@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnd6tks1gduyh" path="res://scripts/player/player_info.gd" id="1_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://b4lvpa6kw20o7" path="res://sprites/UI/heart_full.png.png" id="2_8dubc"]
 [ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://sprites/UI/hunger_full.png" id="3_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://d3p5xec15da5l" path="res://assets/Tiles (White)/tile_0011.png" id="4_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="4_ktti3"]
 [ext_resource type="Texture2D" uid="uid://b24vpuh1sg8yw" path="res://sprites/UI/day.png" id="5_cgfq5"]
 [ext_resource type="Shader" uid="uid://hvj4aavw0qwm" path="res://resources/game.gdshader" id="6_p7vwb"]
@@ -120,6 +121,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=915016662]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PlayerInfo/ItemPanel/HBoxContainer/VBoxContainer" unique_id=1909302354]
+layout_mode = 2
+texture = ExtResource("4_cgfq5")
+
+[node name="Label" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer/VBoxContainer" unique_id=2044952563]
+layout_mode = 2
+text = "Eat"
 
 [node name="Label" type="Label" parent="PlayerInfo/ItemPanel/HBoxContainer" unique_id=1214051573]
 layout_mode = 2

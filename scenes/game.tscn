@@ -6,6 +6,118 @@
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://biv2rg6st4ca5" path="res://scenes/tutorial_ui.gd" id="7_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://dwsciot7dck7i" path="res://sprites/UI/throw_rock_tutorial.png" id="8_vtaks"]
+[ext_resource type="Texture2D" uid="uid://mmnp2atuvn3y" path="res://sprites/UI/mouse-left.png" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dibbbpigyen1u" path="res://sprites/UI/cancel_throw.png" id="10_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://c3np2x7qgbt1u" path="res://sprites/UI/mouse_right.png" id="11_dinhu"]
+[ext_resource type="Texture2D" uid="uid://c8spqe4ns1h5r" path="res://sprites/UI/interact.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dnxa7dw6cwi1c" path="res://sprites/UI/'E'.png" id="13_trtic"]
+[ext_resource type="Texture2D" uid="uid://vjig80qbt0n1" path="res://sprites/UI/'F'.png" id="14_ir15t"]
+
+[sub_resource type="Animation" id="Animation_dinhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_trtic"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir15t"]
+_data = {
+&"RESET": SubResource("Animation_dinhu"),
+&"fade_in": SubResource("Animation_kvuet"),
+&"fade_out": SubResource("Animation_trtic")
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ir15t"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ca42v"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
+_data = {
+&"RESET": SubResource("Animation_kvpfn"),
+&"fade_in": SubResource("Animation_ir15t"),
+&"fade_out": SubResource("Animation_ca42v")
+}
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
@@ -50,5 +162,119 @@ position = Vector2(344, -39)
 player = NodePath("../../Player")
 health_list = NodePath("StatusPanel/HealthBar")
 time_icon = NodePath("TimePanel/TimeIcon")
+
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=484519564]
+script = ExtResource("7_0tnpc")
+
+[node name="Panel" type="Panel" parent="TutorialUI" unique_id=1010094790]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="throw_rock" type="TextureRect" parent="TutorialUI/Panel" unique_id=860442468]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_vtaks")
+
+[node name="mouse_left" type="TextureRect" parent="TutorialUI/Panel" unique_id=626743017]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_kvpfn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TutorialUI" unique_id=2045954565]
+libraries/ = SubResource("AnimationLibrary_ir15t")
+
+[node name="Timer" type="Timer" parent="TutorialUI" unique_id=1992846590]
+
+[node name="Panel2" type="Panel" parent="TutorialUI" unique_id=1109863550]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cancel_throw" type="TextureRect" parent="TutorialUI/Panel2" unique_id=605440609]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_kvpfn")
+
+[node name="mouse_right" type="TextureRect" parent="TutorialUI/Panel2" unique_id=235372087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_dinhu")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="TutorialUI" unique_id=324622201]
+root_node = NodePath("../Panel2")
+libraries/ = SubResource("AnimationLibrary_rysoc")
+
+[node name="Timer2" type="Timer" parent="TutorialUI" unique_id=1773887100]
+
+[node name="Panel3" type="Panel" parent="TutorialUI" unique_id=169852133]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="interact" type="TextureRect" parent="TutorialUI/Panel3" unique_id=261625868]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_dinhu")
+
+[node name="\'E\'" type="TextureRect" parent="TutorialUI/Panel3" unique_id=558097130]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_trtic")
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="TutorialUI" unique_id=1217767395]
+root_node = NodePath("../Panel2")
+libraries/ = SubResource("AnimationLibrary_rysoc")
+
+[node name="Timer3" type="Timer" parent="TutorialUI" unique_id=1441008563]
+
+[node name="Panel4" type="Panel" parent="TutorialUI" unique_id=374638978]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="use" type="TextureRect" parent="TutorialUI/Panel4" unique_id=227178540]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_kvpfn")
+
+[node name="\'F\'" type="TextureRect" parent="TutorialUI/Panel4" unique_id=1894083922]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_ir15t")
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="TutorialUI" unique_id=1666371145]
+root_node = NodePath("../Panel2")
+libraries/ = SubResource("AnimationLibrary_rysoc")
+
+[node name="Timer4" type="Timer" parent="TutorialUI" unique_id=464358506]
 
 [editable path="UI"]

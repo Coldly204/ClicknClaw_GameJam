@@ -1,5 +1,5 @@
 extends Sprite2D
-class_name Mark
+class_name CreatureMark
 
 var flow_vel:float = 1
 

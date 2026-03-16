@@ -121,14 +121,21 @@ _data = {
 &"fade_out": SubResource("Animation_ca42v")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ca42v"]
+light_mode = 1
+
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
-[node name="Day & Night" type="Node" parent="." unique_id=509710048]
+[node name="Day & Night" type="Node" parent="." unique_id=509710048 node_paths=PackedStringArray("timer", "night_light")]
 script = ExtResource("1_ca42v")
+timer = NodePath("Timer")
+night_light = NodePath("Night")
 
 [node name="Night" type="DirectionalLight2D" parent="Day & Night" unique_id=1671800982]
 energy = 0.0
 blend_mode = 1
+
+[node name="Timer" type="Timer" parent="Day & Night" unique_id=494041238]
 
 [node name="Level" type="Node" parent="." unique_id=520215469]
 
@@ -283,6 +290,7 @@ libraries/ = SubResource("AnimationLibrary_rysoc")
 [node name="Timer4" type="Timer" parent="TutorialUI" unique_id=464358506]
 
 [node name="Player" parent="." unique_id=533130759 groups=["Player"] instance=ExtResource("3_lnu2h")]
+material = SubResource("CanvasItemMaterial_ca42v")
 position = Vector2(63, -34)
 scale = Vector2(1, 1)
 max_hunger = 5
@@ -314,5 +322,7 @@ position = Vector2(1144, -40)
 
 [node name="Wolf2" parent="." unique_id=912174629 instance=ExtResource("6_p57ef")]
 position = Vector2(1224, -48)
+
+[connection signal="changing_time_period" from="Day & Night" to="UI/PlayerInfo" method="update_time_ui"]
 
 [editable path="UI"]

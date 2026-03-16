@@ -7,10 +7,10 @@ var height = -1
 func _ready() -> void:
 	Global.transition = self
 
-func _dark():
+func fade_to_black():
 	target_height = 1
 	
-func _light():
+func reset():
 	target_height = -1.5
 	
 	

@@ -28,6 +28,7 @@ var _neutral_enmity_value
 @export var interaction_area:Area2D
 @export var state_machine:StateMachine
 @export var animation_player:AnimationPlayer
+@export var nav_agent: NavigationAgent2D
 
 @onready var shader_material = appearance.material
 

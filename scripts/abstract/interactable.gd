@@ -22,7 +22,7 @@ func form_interactable():
 
 		set_cell(i,-1)
 		
-		if new_object is PickableItem:
+		if new_object is Item:
 			new_object.item_name = data.get_custom_data("ItemName")
 		
 		if new_object is Vines:

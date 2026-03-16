@@ -1,4 +1,5 @@
 extends State
+class_name BaseChaseState
 
 @export var detect_range:float = 164
 
@@ -13,13 +14,15 @@ func on_exit():
 	
 func update(delta):
 	if target and target.current_health > 0:
-		var rela =  target.global_position - master.global_position
-		var x_dire = sign(rela.x)
-		if rela.length() > detect_range or target.is_hiding:
+		master.nav_agent.target_position = target.global_position
+		var vector := master.global_position.direction_to(master.nav_agent.get_next_path_position())
+		var distance_to_target = master.global_position.distance_to(target.global_position)
+		if distance_to_target > detect_range or target.is_hiding:
 			transitioned.emit(self,StateType.IDLE)
-		if rela.length() < 20:
+		if distance_to_target < 20:
 			master.animation_player.play("attack")
 		else:
-			master.run(Vector2(x_dire,0),delta)
+			master.run(vector,delta)
 	else:
 		transitioned.emit(self,StateType.IDLE)
+

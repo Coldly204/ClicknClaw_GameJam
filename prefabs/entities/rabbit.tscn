@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
-[ext_resource type="Script" uid="uid://rphn2f5u7swb" path="res://scripts/rabbit/rabbit_flee.gd" id="3_rcshk"]
 [ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rcshk"]
@@ -33,7 +32,7 @@ material = SubResource("ShaderMaterial_rcshk")
 text = "Rabbit"
 
 [node name="Flee" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="1" unique_id=557740295]
-script = ExtResource("3_rcshk")
+detect_range = 200.0
 
 [node name="InteractionArea" type="Area2D" parent="." index="4" unique_id=1846206117]
 script = ExtResource("3_y2y4c")

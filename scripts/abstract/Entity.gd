@@ -11,7 +11,7 @@ enum EntityType {
 @export var type: EntityType
 @export var max_health: int
 @export var max_hunger: int
-@export var walk_speed: float = 1.5
+@export var base_walk_speed: float = 1.5
 @export var run_speed_multiplier: float = 1.5
 
 @export_category("In-game Attribute")
@@ -19,9 +19,11 @@ enum EntityType {
 @export var current_hunger: int
 
 var is_hiding: bool = false
+var walk_speed_randomness: float = 0.5
 
 func _ready() -> void:
 	current_health = max_health
+	base_walk_speed += randf_range(-walk_speed_randomness,walk_speed_randomness)
 	add_to_group("Entity", true)
 
 func get_nearby(radius: float, find_type: String = "Entity") -> Array[Node2D]:

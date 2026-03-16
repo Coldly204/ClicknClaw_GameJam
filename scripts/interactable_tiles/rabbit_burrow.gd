@@ -3,8 +3,18 @@ class_name RabbitBurrow
 
 @export var other_burrow: RabbitBurrow
 
-	
+var burrow_active = true
+@export var collision_shape: CollisionShape2D 
 
 
 func _on_rabbit_enter(area: Area2D) -> void:
-	pass # Replace with function body.
+	if (area.get_parent() is Rabbit):
+		if burrow_active:
+			(area.get_parent() as Node2D).global_position = other_burrow.global_position
+			other_burrow.burrow_active = false
+			other_burrow.collision_shape.disabled = true
+
+func _on_rabbit_exit(area: Area2D) -> void:
+	await get_tree().create_timer(0.1).timeout
+	burrow_active = true
+	collision_shape.disabled = false

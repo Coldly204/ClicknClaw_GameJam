@@ -4,8 +4,9 @@
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
 [ext_resource type="Texture2D" uid="uid://bcx6qo0j3k72g" path="res://assets/Animals/Rabbit_Corpse.png" id="2_rcshk"]
 [ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
+[ext_resource type="Script" uid="uid://rphn2f5u7swb" path="res://scripts/creature_states/rabbit_flee.gd" id="4_dup2t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dup2t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rcshk"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
@@ -28,15 +29,18 @@ collider = NodePath("CollisionShape2D")
 interaction_area = NodePath("InteractionArea")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_dup2t")
+material = SubResource("ShaderMaterial_rcshk")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 text = "Rabbit"
 
 [node name="Flee" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="1" unique_id=557740295]
-detect_range = 200.0
+script = ExtResource("4_dup2t")
+detect_range = 150.0
 
 [node name="InteractionArea" type="Area2D" parent="." index="4" unique_id=1846206117]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("3_y2y4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1372870252]

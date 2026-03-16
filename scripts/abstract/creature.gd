@@ -63,14 +63,14 @@ func move(motion:Vector2,move_speed: float,_delta:float):
 	shader_move_tick += (abs(motion.x)-shader_move_tick)*_delta*10
 	if shader_material:
 		shader_material.set_shader_parameter("move_tick", shader_move_tick)
-		shader_material.set_shader_parameter("speed", walk_speed * 3.0)
+		shader_material.set_shader_parameter("speed", base_walk_speed * 3.0)
 
 
 func walk(motion: Vector2, _delta: float):
-	move(motion,walk_speed,_delta)
+	move(motion,base_walk_speed,_delta)
 
 func run(motion: Vector2, _delta: float):
-	move(motion,walk_speed * run_speed_multiplier,_delta)
+	move(motion,base_walk_speed * run_speed_multiplier,_delta)
 
 
 func set_enmity(creature_type: EntityType, new_enmity: float):

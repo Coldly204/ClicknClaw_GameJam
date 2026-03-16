@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bsndofi5rxl7f" path="res://assets/tilemap/Tiles/Tiles.png" id="1_qp2yk"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_81yw3"]
 [ext_resource type="Texture2D" uid="uid://davdasp1k7sq1" path="res://assets/tilemap/Props/Stone.png" id="2_qvmtg"]
+[ext_resource type="Texture2D" uid="uid://c881u2ew5b0p1" path="res://assets/tilemap/Props/berry_bush_full.png" id="3_did67"]
+[ext_resource type="PackedScene" uid="uid://bfa7qmuin0fs8" path="res://prefabs/items/berry.tscn" id="3_qvmtg"]
 [ext_resource type="Texture2D" uid="uid://chn7gconjj614" path="res://assets/tilemap/Props/bush.png" id="4_e5o2m"]
+[ext_resource type="Texture2D" uid="uid://cm83ra01vgqeq" path="res://assets/tilemap/Props/berry_bush.png" id="7_qvmtg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_81yw3"]
 tile_data = PackedInt32Array(65536, 327683, 1610612738, 1, 327683, 2, 65537, 327683, 2, 65538, 327683, 1342177282)
@@ -18,6 +21,13 @@ texture = ExtResource("2_qvmtg")
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/custom_data_0 = &"pickup"
 0:0/0/custom_data_1 = ExtResource("1_luhvj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km64h"]
+texture = ExtResource("3_did67")
+0:0/0 = 0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = &"pickberry"
+0:0/0/custom_data_1 = ExtResource("3_qvmtg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_did67"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -313,6 +323,11 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/custom_data_0 = &"hide"
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yi33r"]
+texture = ExtResource("7_qvmtg")
+0:0/0 = 0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
@@ -331,5 +346,7 @@ sources/2 = SubResource("TileSetAtlasSource_81yw3")
 sources/3 = SubResource("TileSetAtlasSource_e5o2m")
 sources/4 = SubResource("TileSetAtlasSource_luhvj")
 sources/0 = SubResource("TileSetAtlasSource_lmoxx")
+sources/1 = SubResource("TileSetAtlasSource_km64h")
+sources/5 = SubResource("TileSetAtlasSource_yi33r")
 pattern_0 = SubResource("TileMapPattern_81yw3")
 pattern_1 = SubResource("TileMapPattern_vgpmu")

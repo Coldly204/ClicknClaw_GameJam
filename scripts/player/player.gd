@@ -150,6 +150,11 @@ func choose_tile_interaction(action_name: StringName, tile_pos: Vector2, tile_ma
 			var item = tile_map_layer.get_cell_tile_data(tile_map_layer.local_to_map(tile_pos)).get_custom_data("Player Item")
 			tile_map_layer.set_cell(tile_map_layer.local_to_map(tile_pos))
 			pickup_item(item.instantiate(), tile_map_layer.local_to_map(tile_pos))
+		"pickberry":
+			var item = tile_map_layer.get_cell_tile_data(tile_map_layer.local_to_map(tile_pos)).get_custom_data("Player Item")
+			tile_map_layer.set_cell(tile_map_layer.local_to_map(tile_pos),5,Vector2i.ZERO,0)
+			pickup_item(item.instantiate(), tile_map_layer.local_to_map(tile_pos))
+
 			
 			
 func pickup_item(item, tilemap_coords):

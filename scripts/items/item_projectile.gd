@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name ItemProjectile
 
 var item_name:String
+var item: Item
 @export var sprite:Sprite2D
 
 	
@@ -16,12 +17,13 @@ func _physics_process(delta: float) -> void:
 				if not collider is Player:
 					if collider is Creature :
 						collider.current_health -= 1
-					queue_free()
-			"Meat":
-				var new_meat:Item = load("res://prefabs/interactables/grounded_item.tscn").instantiate()
-				new_meat.item_name = "Meat"
-				new_meat.global_position = get_last_slide_collision().get_position() + Vector2(0,-8)
-				new_meat.set_texture(new_meat.item_texture[new_meat.item_name])
-				Global.scene.add_child(new_meat)
+						queue_free()
+					else:
+						item.global_position = get_last_slide_collision().get_position() + Vector2(0,-8)
+						Global.scene.add_child(item)
+						queue_free()
+			_:
+				item.global_position = get_last_slide_collision().get_position() + Vector2(0,-8)
+				Global.scene.add_child(item)
 				queue_free()
 		

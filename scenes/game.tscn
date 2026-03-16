@@ -151,9 +151,6 @@ zoom = Vector2(2, 2)
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
 position = Vector2(640, -40)
 
-[node name="Rabbit2" parent="." unique_id=327039673 instance=ExtResource("5_iywne")]
-position = Vector2(676, -40)
-
 [node name="UI" parent="." unique_id=555324190 instance=ExtResource("4_u5sy4")]
 
 [node name="PlayerInfo" parent="UI" index="0" unique_id=1918069214 node_paths=PackedStringArray("player", "health_list", "time_icon")]

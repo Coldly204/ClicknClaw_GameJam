@@ -62,6 +62,7 @@ func motion_process(delta: float):
 				if held_item_name == "Meat":
 					current_hunger += 1
 					held_item = null
+					item_changed.emit()
 			elif Input.is_action_pressed("cancel_use"):
 				dotted_line.visible = false
 				using_item = false
@@ -147,9 +148,11 @@ func get_furthest_interactable_tile_position(start_tile_pos: Vector2i, direction
 func throw(item: Item):
 	if !held_item:
 		return
-	var item_projectile = item.projectile.instantiate()
+	var item_projectile = item.projectile.instantiate() as ItemProjectile
 	item_projectile.velocity = mouse_pos.normalized() * 480
 	item_projectile.item_name = item.item_name
+	item_projectile.sprite.texture = item.sprite.texture
+	item_projectile.item = held_item.duplicate()
 	item_projectile.global_position = global_position - Vector2(0, 16)
 	Global.scene.add_child(item_projectile)
 	held_item = null

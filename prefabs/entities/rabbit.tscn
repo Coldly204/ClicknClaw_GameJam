@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
 [ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
+[ext_resource type="Texture2D" uid="uid://bcx6qo0j3k72g" path="res://assets/Animals/Rabbit_Corpse.png" id="2_rcshk"]
 [ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rcshk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dup2t"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
@@ -21,12 +22,13 @@ shader_parameter/extra_rotation = 0.0
 radius = 18.027756
 
 [node name="Rabbit" unique_id=768621133 node_paths=PackedStringArray("collider", "interaction_area") instance=ExtResource("1_xwpcf")]
+corpse_texture = ExtResource("2_rcshk")
 base_relationship = 0
 collider = NodePath("CollisionShape2D")
 interaction_area = NodePath("InteractionArea")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_rcshk")
+material = SubResource("ShaderMaterial_dup2t")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 text = "Rabbit"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1brhpfxqay0s"]
 
-[ext_resource type="Script" uid="uid://dfft22352rbne" path="res://scripts/bush.gd" id="1_50o7n"]
+[ext_resource type="Script" uid="uid://dfft22352rbne" path="res://scripts/interactable_tiles/bush.gd" id="1_50o7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hytr2"]
 size = Vector2(48, 48)

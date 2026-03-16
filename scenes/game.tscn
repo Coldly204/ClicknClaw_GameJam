@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
-[ext_resource type="Script" path="res://scenes/tutorial_ui.gd" id="7_0tnpc"]
+[ext_resource type="Script" uid="uid://biv2rg6st4ca5" path="res://scripts/ui/tutorial_ui.gd" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dwsciot7dck7i" path="res://sprites/UI/throw_rock_tutorial.png" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://mmnp2atuvn3y" path="res://sprites/UI/mouse-left.png" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dibbbpigyen1u" path="res://sprites/UI/cancel_throw.png" id="10_kvpfn"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://duv07bfafokts"]
 
-[ext_resource type="Script" uid="uid://dasnloe48jsos" path="res://scenes/MainMenu.gd" id="1_r67kn"]
+[ext_resource type="Script" uid="uid://dasnloe48jsos" path="res://scripts/ui/main_menu.gd" id="1_r67kn"]
 [ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="2_brbbq"]
 [ext_resource type="FontFile" uid="uid://dqf5qr2qiv00q" path="res://assets/PixelMusketeer-vEXO.ttf" id="3_brbbq"]
 

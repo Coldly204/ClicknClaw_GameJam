@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0334onkyv40d"]
 
-[ext_resource type="Script" uid="uid://ceq0npsjr7wyb" path="res://scripts/Mark.gd" id="1_64oqa"]
+[ext_resource type="Script" uid="uid://ceq0npsjr7wyb" path="res://scripts/mark.gd" id="1_64oqa"]
 [ext_resource type="Texture2D" uid="uid://bf5urix3uq1k3" path="res://assets/UI/white_exclamation.png" id="1_v3wjs"]
 
 [node name="Mark" type="Sprite2D" unique_id=1789506707]

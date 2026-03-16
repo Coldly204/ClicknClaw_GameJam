@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfa7qmuin0fs8"]
+
+[ext_resource type="PackedScene" uid="uid://bsbj05gq4e3t4" path="res://prefabs/items/item.tscn" id="1_vpm2b"]
+
+[node name="Berry" unique_id=1690928875 instance=ExtResource("1_vpm2b")]
+item_name = "Berry"

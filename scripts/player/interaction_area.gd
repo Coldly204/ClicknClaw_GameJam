@@ -29,11 +29,11 @@ func _physics_process(delta: float) -> void:
 					if interactable_tile_map_layer.get_cell_tile_data(cell).has_custom_data("Player Action"):
 						nearby_tiles.append(cell_pos)
 						player_action = interactable_tile_map_layer.get_cell_tile_data(cell).get_custom_data("Player Action")
-			nearby_tiles.sort_custom(func(a,b): return a.distance_to(master.global_position) < b.distance_to(master.global_position))
-			if nearby_tiles:
-				var nearest_tile_pos: Vector2 = nearby_tiles[0]
-				master.choose_tile_interaction(
-					player_action,
-					nearest_tile_pos,
-					interactable_tile_map_layer
-					)
+				nearby_tiles.sort_custom(func(a,b): return a.distance_to(master.global_position) < b.distance_to(master.global_position))
+				if nearby_tiles:
+					var nearest_tile_pos: Vector2 = nearby_tiles[0]
+					master.choose_tile_interaction(
+						player_action,
+						nearest_tile_pos,
+						interactable_tile_map_layer
+						)

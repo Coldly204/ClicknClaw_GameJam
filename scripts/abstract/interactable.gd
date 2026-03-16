@@ -15,7 +15,7 @@ func form_interactable():
 		var pos = map_to_local(i)
 		var new_object = data.get_custom_data("Replace").instantiate() as InteractableObject
 		new_object.position = pos
-		if !new_object.sprite.texture:
+		if !new_object.sprite:
 			new_object.set_texture(texture)
 		new_object.map_pos = i
 		call_deferred("add_child",new_object)

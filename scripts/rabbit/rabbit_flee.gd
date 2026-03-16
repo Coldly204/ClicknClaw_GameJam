@@ -16,3 +16,5 @@ func update(delta):
 	master.run(Vector2(x_dire,0),delta)
 	if target_relative_vector.length() > detect_range:
 		transitioned.emit(self,StateType.IDLE)
+
+

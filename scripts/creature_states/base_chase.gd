@@ -25,4 +25,3 @@ func update(delta):
 			master.run(vector,delta)
 	else:
 		transitioned.emit(self,StateType.IDLE)
-

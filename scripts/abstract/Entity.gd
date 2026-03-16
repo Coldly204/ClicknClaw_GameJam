@@ -5,6 +5,7 @@ enum EntityType {
 	PLAYER,
 	RABBIT,
 	WOLF,
+	LION,
 }
 
 @export_category("Attributes")
@@ -34,7 +35,7 @@ func get_nearby(radius: float, find_type: String = "Entity") -> Array[Node2D]:
 	var nearby_objects_array: Array[Node2D]
 	var objects = get_tree().get_nodes_in_group(find_type)
 	for object: Node2D in objects:
-		if object == self:
+		if object == self or (object is Entity and object.is_hiding):
 			continue
 		var dist_to_entity = object.global_position.distance_to(global_position)
 		if dist_to_entity <= radius:

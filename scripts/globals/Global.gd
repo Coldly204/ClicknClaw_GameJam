@@ -12,4 +12,3 @@ var current_day = 1
 
 @onready var scene = get_node("/root/Game")
 var transition:TransitionScreen
-

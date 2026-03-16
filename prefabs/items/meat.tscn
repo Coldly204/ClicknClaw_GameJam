@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3401gddbljxf"]
+
+[ext_resource type="PackedScene" uid="uid://bsbj05gq4e3t4" path="res://prefabs/items/item.tscn" id="1_6qgji"]
+[ext_resource type="Texture2D" uid="uid://dmuxinh8wadkv" path="res://assets/tilemap/Props/Meat.png" id="2_i86qc"]
+
+[node name="Meat" unique_id=1690928875 instance=ExtResource("1_6qgji")]
+item_name = "Meat"
+
+[node name="Sprite2D" parent="." index="0" unique_id=1357719344]
+texture = ExtResource("2_i86qc")

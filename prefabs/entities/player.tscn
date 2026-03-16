@@ -47,8 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtvp5"]
-radius = 12.0
-height = 46.0
+radius = 9.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_83v73"]
 radius = 11.752659
@@ -57,10 +56,11 @@ radius = 11.752659
 scale = Vector2(4, 4)
 collision_layer = 8
 script = ExtResource("1_j0cl5")
+jump_height = 15
 sprite = NodePath("Sprite")
 collision_shape = NodePath("CollisionShape2D")
 dotted_line = NodePath("Line2D")
-max_health = 3
+max_health = 5
 max_hunger = 3
 current_health = 3
 current_hunger = 1
@@ -72,7 +72,7 @@ position = Vector2(0, -12.5)
 sprite_frames = SubResource("SpriteFrames_8qovm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757404181]
-position = Vector2(0, -23)
+position = Vector2(-0.25, -13.75)
 shape = SubResource("CapsuleShape2D_jtvp5")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master", "label")]
@@ -98,6 +98,7 @@ text = "E"
 horizontal_alignment = 1
 
 [node name="Line2D" type="Line2D" parent="." unique_id=265342237]
+visible = false
 points = PackedVector2Array(0, -16, 37.572197, -6.6069565, 64, 0)
 width = 2.0
 texture = ExtResource("5_ss567")

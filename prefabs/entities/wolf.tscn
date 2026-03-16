@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cfm5bsrc78qc0"]
 
 [ext_resource type="PackedScene" uid="uid://b3bptux15qccw" path="res://prefabs/entities/predator.tscn" id="1_s3gw2"]
-[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_cjmbn"]
-[ext_resource type="Script" uid="uid://csigeje5623m8" path="res://scripts/wolf/states/follow.gd" id="5_avmqp"]
-[ext_resource type="Script" uid="uid://csbaspwdgcfcj" path="res://scripts/wolf/states/foraging.gd" id="6_cjmbn"]
+[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_cjmbn"]
+[ext_resource type="Script" uid="uid://srtywntolyx6" path="res://scripts/creature_behaviours/wolf.gd" id="2_i7tqy"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_idle.gd" id="4_cjmbn"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_follow.gd" id="5_avmqp"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_foraging.gd" id="6_cjmbn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3gw2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjmbn"]
 resource_local_to_scene = true
 shader = ExtResource("2_cjmbn")
 shader_parameter/pivot = Vector2(0, 0)
@@ -19,20 +21,25 @@ shader_parameter/thickness = 1.0
 shader_parameter/extra_rotation = 0.0
 
 [node name="Wolf" unique_id=768621133 instance=ExtResource("1_s3gw2")]
-default_enmity_values = Dictionary[int, float]({
-0: 1.0,
-1: 1.0,
-2: 0.0
+script = ExtResource("2_i7tqy")
+is_alpha = false
+base_relationship = 0
+default_relationships = Dictionary[int, int]({
+2: 2
 })
 
+[node name="NavigationAgent2D" parent="." index="1" unique_id=103564601]
+target_desired_distance = 10.0
+
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_s3gw2")
+material = SubResource("ShaderMaterial_cjmbn")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 text = "Wolf"
 
 [node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="0" unique_id=363468544]
-detect_range = 100.0
+script = ExtResource("4_cjmbn")
+detect_range = 200.0
 
 [node name="Follow" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="3" unique_id=122937326]
 script = ExtResource("5_avmqp")

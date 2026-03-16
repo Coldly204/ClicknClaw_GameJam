@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://boniatij8ieb0"]
 
-[ext_resource type="Script" uid="uid://dkyrj8r748xpp" path="res://scripts/rabbit_burrow.gd" id="1_y8e2e"]
+[ext_resource type="Script" uid="uid://dkyrj8r748xpp" path="res://scripts/interactable_tiles/rabbit_burrow.gd" id="1_y8e2e"]
 [ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="2_35pty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35pty"]
+size = Vector2(16, 16)
 
-[node name="RabbitBurrow" type="Area2D" unique_id=1977237797 node_paths=PackedStringArray("sprite")]
+[node name="RabbitBurrow" type="Area2D" unique_id=1977237797 node_paths=PackedStringArray("collision_shape", "sprite") groups=["Rabbit Burrow"]]
+collision_layer = 16
+collision_mask = 4
 script = ExtResource("1_y8e2e")
+collision_shape = NodePath("CollisionShape2D")
 sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1227877885]
 shape = SubResource("RectangleShape2D_35pty")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745879202]
-position = Vector2(1, 4)
+position = Vector2(0, 4)
 texture = ExtResource("2_35pty")
 region_enabled = true
 region_rect = Rect2(128, 24, 16, 8)
 
 [connection signal="area_entered" from="." to="." method="_on_rabbit_enter"]
+[connection signal="area_exited" from="." to="." method="_on_rabbit_exit"]

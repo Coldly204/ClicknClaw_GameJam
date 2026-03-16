@@ -61,7 +61,10 @@ func update_hunger():
 				hunger.texture = load("res://assets/UI/hunger_empty.png")
 
 func update_item():
-	item_label.text = player.held_item
+	if player.held_item:
+		item_label.text = player.held_item.item_name
+	else:
+		item_label.text = ""
 	
 func update_time_ui():
 	if time_icon == null:
@@ -73,6 +76,7 @@ func update_time_ui():
 		time_icon.texture = night_texture
 
 func _ready():
+	player.item_changed.connect(update_item)
 	update_time_ui()
 
 func _physics_process(delta: float) -> void:

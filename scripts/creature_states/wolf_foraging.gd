@@ -13,6 +13,7 @@ func on_exit():
 	
 
 func update(delta):
+
 	if target:
 		var rela =  target.global_position - master.global_position
 		var x_dire = sign(rela.x)

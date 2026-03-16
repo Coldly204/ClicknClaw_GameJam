@@ -5,6 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://bj828pychnbun" path="res://sprites/UI/hunger_full.png" id="3_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://c25deghjr7g7f" path="res://icon.svg" id="4_ktti3"]
 [ext_resource type="Texture2D" uid="uid://b24vpuh1sg8yw" path="res://sprites/UI/day.png" id="5_cgfq5"]
+[ext_resource type="Shader" uid="uid://hvj4aavw0qwm" path="res://resources/game.gdshader" id="6_p7vwb"]
+[ext_resource type="Script" uid="uid://iprtvcnmvn7i" path="res://scripts/ui/transition.gd" id="7_ktti3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgfq5"]
+shader = ExtResource("6_p7vwb")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 10.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -1.0
+shader_parameter/disable_pixel = false
 
 [node name="UI" type="CanvasLayer" unique_id=1190792972]
 
@@ -132,3 +142,13 @@ offset_bottom = -536.0
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_cgfq5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=94201215]
+material = SubResource("ShaderMaterial_cgfq5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("7_ktti3")

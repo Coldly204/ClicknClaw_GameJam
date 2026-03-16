@@ -27,6 +27,7 @@ signal item_changed
 var mouse_pos: Vector2
 	
 func _ready() -> void:
+	climb_speed = 10
 	add_to_group("Player",true)
 
 func _physics_process(delta: float) -> void:
@@ -40,6 +41,7 @@ func motion_process(delta: float):
 		Global.transition._dark()
 	if Input.is_action_just_pressed("2"):
 		Global.transition._light()
+
 	
 	if current_health <= 0:
 		velocity.x = 0
@@ -47,40 +49,41 @@ func motion_process(delta: float):
 		modulate = Color(1.0, 0.0, 0.0, 1.0)
 		if max_hunger <= 0:
 			queue_free()
+		return
+
+	sprite.visible = true
+	if climbing:
+		climb(climb_start, climb_end, input, delta)
+	elif is_hiding:
+		sprite.visible = false
 	else:
-		sprite.visible = true
-		if climbing:
-			climb(climb_start, climb_end, input, delta)
-		elif is_hiding:
-			sprite.visible = false
+		walk(input, delta)
+		
+	if held_item:
+		var held_item_name = held_item.item_name
+		if Input.is_action_just_pressed("eat"):
+			if held_item_name == "Meat":
+				current_hunger += 1
+				held_item = null
+				item_changed.emit()
+		elif Input.is_action_pressed("cancel_use"):
+			dotted_line.visible = false
+			using_item = false
+		elif Input.is_action_pressed("use_item"):
+			using_item = true
+			if held_item_name == "Stone" or held_item_name == "Meat":
+				dotted_line.visible = true
+				mouse_pos = get_local_mouse_position()
+				dotted_line.clear_points()
+				var points = predict_trajectory(Vector2(0, -16), mouse_pos.normalized() * 480, 80, delta)
+				for i in points:
+					dotted_line.add_point(i)
 		else:
-			walk(input, delta)
-			
-		if held_item:
-			var held_item_name = held_item.item_name
-			if Input.is_action_just_pressed("eat"):
-				if held_item_name == "Meat":
-					current_hunger += 1
-					held_item = null
-					item_changed.emit()
-			elif Input.is_action_pressed("cancel_use"):
-				dotted_line.visible = false
+			dotted_line.visible = false
+			if using_item:
+				throw(held_item)
+				held_item = null
 				using_item = false
-			elif Input.is_action_pressed("use_item"):
-				using_item = true
-				if held_item_name == "Stone" or held_item_name == "Meat":
-					dotted_line.visible = true
-					mouse_pos = get_local_mouse_position()
-					dotted_line.clear_points()
-					var points = predict_trajectory(Vector2(0, -16), mouse_pos.normalized() * 480, 80, delta)
-					for i in points:
-						dotted_line.add_point(i)
-			else:
-				dotted_line.visible = false
-				if using_item:
-					throw(held_item)
-					held_item = null
-					using_item = false
 	if shader_material:
 		shader_material.set_shader_parameter("move_tick", shader_move_tick)
 		shader_material.set_shader_parameter("speed", base_walk_speed * 3.0)
@@ -105,7 +108,8 @@ func climb(begin: Vector2, end: Vector2, input: Vector2, delta: float):
 	# global_position = begin.lerp(end, climbing_progress)
 	# climbing_progress = clamp(climbing_progress, 0, 1)
 	collision_shape.disabled = true
-	velocity.y = input.y * climb_speed * Global.TILEMAP_SIZE
+	velocity.y = input.y * climb_speed
+	velocity.y *= Global.TILEMAP_SIZE
 	velocity.x = 0
 	# global_position = clamp(global_position,begin,end)
 	sprite.animation = "climb"
@@ -169,19 +173,7 @@ func throw(item: Item):
 	held_item = null
 	item_changed.emit()
 	return
-	match (item):
-		"Stone":
-			var new_stone = load("res://prefabs/items/ThrowingItem.tscn").instantiate()
-			new_stone.velocity = mouse_pos.normalized() * 480
-			new_stone.item_name = "Stone"
-			new_stone.global_position = global_position - Vector2(0, 16)
-			Global.scene.add_child(new_stone)
-		"Meat":
-			var new_stone = load("res://prefabs/items/ThrowingItem.tscn").instantiate()
-			new_stone.velocity = mouse_pos.normalized() * 480
-			new_stone.item_name = "Meat"
-			new_stone.global_position = global_position - Vector2(0, 16)
-			Global.scene.add_child(new_stone)
+
 	
 
 func bezier(start: Vector2, end: Vector2, t: float):

@@ -70,10 +70,6 @@ jump_height = 15
 sprite = NodePath("Sprite")
 collision_shape = NodePath("CollisionShape2D")
 dotted_line = NodePath("Line2D")
-max_health = 5
-max_hunger = 3
-current_health = 3
-current_hunger = 1
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1242458710]
 texture_filter = 3

@@ -31,7 +31,7 @@ Player=""
 
 [gui]
 
-theme/custom_font="uid://dqf5qr2qiv00q"
+theme/custom_font="res://assets/VonwaonBitmap-16px.ttf"
 
 [input]
 

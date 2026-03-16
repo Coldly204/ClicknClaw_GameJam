@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8spqe4ns1h5r" path="res://sprites/UI/interact.png" id="12_dinhu"]
 [ext_resource type="Texture2D" uid="uid://dnxa7dw6cwi1c" path="res://sprites/UI/'E'.png" id="13_trtic"]
 [ext_resource type="Texture2D" uid="uid://vjig80qbt0n1" path="res://sprites/UI/'F'.png" id="14_ir15t"]
+[ext_resource type="PackedScene" uid="uid://boniatij8ieb0" path="res://prefabs/interactables/rabbit_burrow.tscn" id="14_trtic"]
 
 [sub_resource type="Animation" id="Animation_dinhu"]
 length = 0.001
@@ -120,10 +121,6 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
 
-[node name="Camera2D2" type="Camera2D" parent="." unique_id=1657630754]
-position = Vector2(276, -130)
-zoom = Vector2(2, 2)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693162686]
 visible = false
 position = Vector2(-1, -49)
@@ -147,6 +144,10 @@ position = Vector2(63, -34)
 scale = Vector2(1, 1)
 max_health = 5
 max_hunger = 5
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1657630754]
+position = Vector2(213, -96)
+zoom = Vector2(2, 2)
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
 position = Vector2(308, -39)
@@ -274,5 +275,13 @@ root_node = NodePath("../Panel2")
 libraries/ = SubResource("AnimationLibrary_rysoc")
 
 [node name="Timer4" type="Timer" parent="TutorialUI" unique_id=464358506]
+
+[node name="RabbitBurrow" parent="." unique_id=1977237797 node_paths=PackedStringArray("other_burrow") instance=ExtResource("14_trtic")]
+position = Vector2(552, -40)
+other_burrow = NodePath("../RabbitBurrow2")
+
+[node name="RabbitBurrow2" parent="." unique_id=839022411 node_paths=PackedStringArray("other_burrow") instance=ExtResource("14_trtic")]
+position = Vector2(888, -40)
+other_burrow = NodePath("../RabbitBurrow")
 
 [editable path="UI"]

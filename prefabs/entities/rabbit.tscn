@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bx4u0tf8b1b2b"]
 
 [ext_resource type="PackedScene" uid="uid://b5pkgf7mpapxr" path="res://prefabs/entities/creature.tscn" id="1_xwpcf"]
-[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_fpn3a"]
+[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_fpn3a"]
 [ext_resource type="Texture2D" uid="uid://bcx6qo0j3k72g" path="res://assets/Animals/Rabbit_Corpse.png" id="2_rcshk"]
-[ext_resource type="Script" uid="uid://deeiwtry437xp" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
-[ext_resource type="Script" uid="uid://rphn2f5u7swb" path="res://scripts/creature_states/rabbit_flee.gd" id="4_dup2t"]
+[ext_resource type="Script" path="res://scripts/abstract/sub_interanction_area.gd" id="3_y2y4c"]
+[ext_resource type="Texture2D" uid="uid://sqvhndddkjyo" path="res://assets/Animals/Rabbit.png" id="4_6hjdx"]
+[ext_resource type="Script" path="res://scripts/creature_states/rabbit_flee.gd" id="4_dup2t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dup2t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_juml2"]
 resource_local_to_scene = true
 shader = ExtResource("2_fpn3a")
 shader_parameter/pivot = Vector2(0, 0)
@@ -29,10 +30,16 @@ collider = NodePath("CollisionShape2D")
 interaction_area = NodePath("InteractionArea")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_dup2t")
+material = SubResource("ShaderMaterial_juml2")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
+visible = false
 text = "Rabbit"
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" index="1" unique_id=1145995621]
+use_parent_material = true
+position = Vector2(0, -7)
+texture = ExtResource("4_6hjdx")
 
 [node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="0" unique_id=363468544]
 detect_range = 100.0

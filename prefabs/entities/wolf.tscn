@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cfm5bsrc78qc0"]
 
 [ext_resource type="PackedScene" uid="uid://b3bptux15qccw" path="res://prefabs/entities/predator.tscn" id="1_s3gw2"]
-[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_cjmbn"]
+[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_cjmbn"]
 [ext_resource type="Script" uid="uid://srtywntolyx6" path="res://scripts/creature_behaviours/wolf.gd" id="2_i7tqy"]
-[ext_resource type="Script" uid="uid://c25aw4mkn0ggg" path="res://scripts/creature_states/wolf_idle.gd" id="4_cjmbn"]
-[ext_resource type="Script" uid="uid://csigeje5623m8" path="res://scripts/creature_states/wolf_follow.gd" id="5_avmqp"]
-[ext_resource type="Script" uid="uid://csbaspwdgcfcj" path="res://scripts/creature_states/wolf_foraging.gd" id="6_cjmbn"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_idle.gd" id="4_cjmbn"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_follow.gd" id="5_avmqp"]
+[ext_resource type="Script" path="res://scripts/creature_states/wolf_foraging.gd" id="6_cjmbn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjmbn"]
 resource_local_to_scene = true

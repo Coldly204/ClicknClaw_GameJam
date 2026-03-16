@@ -1,5 +1,5 @@
 extends Sprite2D
-class_name Disclaimer
+class_name Mark
 
 var flow_vel:float = 1
 

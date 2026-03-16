@@ -22,6 +22,7 @@ func update(delta):
 		if distance_to_target < 20:
 			master.animation_player.play("attack")
 		else:
-			master.run(vector,delta)
+			if master.nav_agent.is_target_reachable() and !master.nav_agent.is_target_reached():
+				master.run(vector,delta)
 	else:
 		transitioned.emit(self,StateType.IDLE)

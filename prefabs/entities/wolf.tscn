@@ -3,19 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://b3bptux15qccw" path="res://prefabs/entities/predator.tscn" id="1_s3gw2"]
 [ext_resource type="Shader" path="res://resources/player.gdshader" id="2_cjmbn"]
 [ext_resource type="Script" uid="uid://srtywntolyx6" path="res://scripts/creature_behaviours/wolf.gd" id="2_i7tqy"]
+[ext_resource type="Texture2D" uid="uid://ckexvk76aw6ae" path="res://assets/Animals/Wolf.png" id="4_avmqp"]
 [ext_resource type="Script" path="res://scripts/creature_states/wolf_idle.gd" id="4_cjmbn"]
 [ext_resource type="Script" path="res://scripts/creature_states/wolf_follow.gd" id="5_avmqp"]
 [ext_resource type="Script" path="res://scripts/creature_states/wolf_foraging.gd" id="6_cjmbn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjmbn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oyim"]
 resource_local_to_scene = true
 shader = ExtResource("2_cjmbn")
 shader_parameter/pivot = Vector2(0, 0)
 shader_parameter/speed = 3.0
-shader_parameter/bounce_amount = 15.0
-shader_parameter/squash_amount = 0.15
-shader_parameter/move_tick = 1.0
-shader_parameter/clr = Color(0, 0, 0, 1)
+shader_parameter/bounce_amount = 5.0000002375
+shader_parameter/squash_amount = 0.10000000475
+shader_parameter/move_tick = 4.7499999933364734e-08
+shader_parameter/clr = Color(0.18, 0.18, 0.18, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 1.0
 shader_parameter/extra_rotation = 0.0
@@ -32,10 +33,16 @@ default_relationships = Dictionary[int, int]({
 target_desired_distance = 10.0
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_cjmbn")
+material = SubResource("ShaderMaterial_7oyim")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
+visible = false
 text = "Wolf"
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" index="1" unique_id=1150244203]
+use_parent_material = true
+position = Vector2(0, -12)
+texture = ExtResource("4_avmqp")
 
 [node name="Idle" parent="StateMachine" parent_id_path=PackedInt32Array(2060191624) index="0" unique_id=363468544]
 script = ExtResource("4_cjmbn")

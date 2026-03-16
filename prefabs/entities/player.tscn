@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://csb751bl4k57u"]
 
 [ext_resource type="Script" uid="uid://bw2dtgnyr2um0" path="res://scripts/player/player.gd" id="1_j0cl5"]
-[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_qpvj0"]
+[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qpvj0"]
 [ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_2tsmg"]
 [ext_resource type="Script" uid="uid://b2iggtnwc8ve6" path="res://scripts/player/interaction_area.gd" id="4_ohfey"]
+[ext_resource type="Texture2D" uid="uid://dnm71mlplvnx6" path="res://assets/Tiles (White)/tile_0087.png" id="5_qpvj0"]
 [ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://sprites/UI/dotted_line.png" id="5_ss567"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xap6g"]
@@ -81,27 +82,27 @@ sprite_frames = SubResource("SpriteFrames_8qovm")
 position = Vector2(-0.25, -13.75)
 shape = SubResource("CapsuleShape2D_jtvp5")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master", "label")]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1825318703 node_paths=PackedStringArray("master", "interaction_sprite")]
+z_index = 3
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("4_ohfey")
 master = NodePath("..")
-label = NodePath("Label")
+interaction_sprite = NodePath("TextureRect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=957231326]
 position = Vector2(0.25, -18)
 shape = SubResource("CircleShape2D_83v73")
 debug_color = Color(0.9460127, 5.968213e-06, 0.592087, 0.41960785)
 
-[node name="Label" type="Label" parent="InteractionArea" unique_id=567856847]
-texture_filter = 3
-offset_left = -38.5
-offset_top = -40.0
-offset_right = 38.5
-offset_bottom = -20.75
-theme_override_font_sizes/font_size = 16
-text = "E"
-horizontal_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="InteractionArea" unique_id=612110801]
+offset_left = -5.25
+offset_top = -41.25
+offset_right = 5.5
+offset_bottom = -30.5
+texture = ExtResource("5_qpvj0")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Line2D" type="Line2D" parent="." unique_id=265342237]
 visible = false

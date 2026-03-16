@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cu8suqqbjspqi"]
+
+[ext_resource type="PackedScene" uid="uid://bsbj05gq4e3t4" path="res://prefabs/items/item.tscn" id="1_jwlkt"]
+[ext_resource type="Texture2D" uid="uid://davdasp1k7sq1" path="res://assets/tilemap/Props/Stone.png" id="2_xgrps"]
+
+[node name="Stone" unique_id=1690928875 instance=ExtResource("1_jwlkt")]
+item_name = "Stone"
+
+[node name="Sprite2D" parent="." index="0" unique_id=1357719344]
+texture = ExtResource("2_xgrps")

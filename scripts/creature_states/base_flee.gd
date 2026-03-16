@@ -1,4 +1,5 @@
 extends State
+class_name BaseFleeState
 
 @export var detect_range:float = 200
 var target: Entity

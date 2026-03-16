@@ -1,4 +1,5 @@
 extends State
+class_name BaseIdleState
 
 @export var detect_range:float = 128
 

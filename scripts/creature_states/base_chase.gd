@@ -1,4 +1,5 @@
 extends State
+class_name BaseChaseState
 
 @export var detect_range:float = 164
 

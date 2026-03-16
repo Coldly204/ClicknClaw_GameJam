@@ -2,6 +2,7 @@ extends Area2D
 class_name InteractionArea
 
 @export var master:Player
+@export var label:Label
 
 func _physics_process(delta: float) -> void:
 	var interactable_objects = get_overlapping_areas()

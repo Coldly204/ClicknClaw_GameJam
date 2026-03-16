@@ -80,8 +80,7 @@ func take_damage(dmg: int):
 func lose_hunger(value: int):
 	current_hunger -= value
 	current_hunger = clamp(current_hunger,0,max_hunger)
-	if current_hunger == 0:
-		die()
+
 
 func heal(health: int):
 	take_damage(-health)

@@ -37,7 +37,6 @@ shape = SubResource("CircleShape2D_6sd3u")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=103564601]
 target_desired_distance = 20.0
-debug_enabled = true
 
 [node name="Appearance" type="Node2D" parent="." unique_id=1187707011]
 material = SubResource("ShaderMaterial_sg1ma")

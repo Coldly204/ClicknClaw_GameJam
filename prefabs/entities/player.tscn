@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csb751bl4k57u"]
 
 [ext_resource type="Script" uid="uid://bw2dtgnyr2um0" path="res://scripts/player/player.gd" id="1_j0cl5"]
-[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_qpvj0"]
+[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_qpvj0"]
 [ext_resource type="Texture2D" uid="uid://ct2801mcxhmv2" path="res://assets/player-placeholder/16x32/16x32 All Animations.png" id="3_2tsmg"]
 [ext_resource type="Script" uid="uid://b2iggtnwc8ve6" path="res://scripts/player/interaction_area.gd" id="4_ohfey"]
 [ext_resource type="Texture2D" uid="uid://1xnl7by5mulk" path="res://sprites/UI/dotted_line.png" id="5_ss567"]
@@ -52,6 +52,15 @@ radius = 9.25
 [sub_resource type="CircleShape2D" id="CircleShape2D_83v73"]
 radius = 11.752659
 
+[sub_resource type="Gradient" id="Gradient_j0cl5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qpvj0"]
+gradient = SubResource("Gradient_j0cl5")
+fill = 1
+fill_from = Vector2(0.48433048, 0.49287748)
+fill_to = Vector2(0.052706555, 0.95156693)
+
 [node name="Player" type="CharacterBody2D" unique_id=533130759 node_paths=PackedStringArray("sprite", "collision_shape", "dotted_line") groups=["Entity"]]
 texture_filter = 3
 scale = Vector2(4, 4)
@@ -61,10 +70,6 @@ jump_height = 15
 sprite = NodePath("Sprite")
 collision_shape = NodePath("CollisionShape2D")
 dotted_line = NodePath("Line2D")
-max_health = 5
-max_hunger = 3
-current_health = 3
-current_hunger = 1
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1242458710]
 texture_filter = 3
@@ -104,3 +109,7 @@ points = PackedVector2Array(0, -16, 37.572197, -6.6069565, 64, 0)
 width = 2.0
 texture = ExtResource("5_ss567")
 texture_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1747416549]
+position = Vector2(0.75, -10.75)
+texture = SubResource("GradientTexture2D_qpvj0")

@@ -14,9 +14,7 @@ var hunger_empty = preload("res://sprites/UI/hunger_empty.png")
 var day_texture = preload("res://sprites/UI/day.png")
 var night_texture = preload("res://sprites/UI/night.png")
 
-var is_day = true
 var time_counter = 0.0
-var day_night_duration = 10.0
 
 func update_health():
 	var children = health_list.get_children()
@@ -70,7 +68,7 @@ func update_time_ui():
 	if time_icon == null:
 		return
 
-	if is_day:
+	if !Global.is_night:
 		time_icon.texture = day_texture
 	else:
 		time_icon.texture = night_texture
@@ -82,10 +80,3 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	update_health()
 	update_hunger()
-
-	time_counter += delta
-	if time_counter >= day_night_duration:
-		is_day = !is_day
-		update_time_ui()
-		time_counter = 0.0
-				

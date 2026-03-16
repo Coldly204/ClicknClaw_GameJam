@@ -2,20 +2,20 @@ extends Area2D
 class_name InteractionArea
 
 @export var master:Player
-@export var label:Label
+@export var interaction_sprite: TextureRect
 
 func _physics_process(delta: float) -> void:
 	var interactable_objects = get_overlapping_areas()
 	var interactable_bodies = get_overlapping_bodies()
 	var interactable_tile_map_layer: TileMapLayer
 	var nearest_interactable_object: InteractableObject
-	label.visible = false
+	interaction_sprite.visible = false
 	if interactable_objects:
-		label.visible = true
+		interaction_sprite.visible = true
 		interactable_objects.sort_custom(func(a,b): return a.global_position.distance_to(global_position) < b.global_position.distance_to(global_position))
 		nearest_interactable_object = interactable_objects[0]
 	if interactable_bodies:
-		label.visible = true
+		interaction_sprite.visible = true
 		interactable_tile_map_layer = interactable_bodies[0] as TileMapLayer if interactable_bodies[0] is TileMapLayer else null
 	if Input.is_action_just_pressed("interact"):
 		if nearest_interactable_object:

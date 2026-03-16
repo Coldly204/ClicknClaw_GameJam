@@ -1,10 +1,13 @@
 [gd_scene format=4 uid="uid://bccld0lmx3w27"]
 
+[ext_resource type="Script" uid="uid://dmg1uestsx13p" path="res://scripts/ui/game.gd" id="1_1kice"]
 [ext_resource type="Script" uid="uid://dvx2s2c1jppfh" path="res://scripts/globals/day_night_cycle.gd" id="1_ca42v"]
 [ext_resource type="TileSet" uid="uid://47g6fnnr6m8i" path="res://resources/tileset.tres" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://csb751bl4k57u" path="res://prefabs/entities/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c87a22mgu0a5w" path="res://prefabs/other/tree.tscn" id="4_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://c6kksi04gk2dk" path="res://scenes/ui.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx4u0tf8b1b2b" path="res://prefabs/entities/rabbit.tscn" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://d3p5xec15da5l" path="res://assets/Tiles (White)/tile_0011.png" id="6_264po"]
 [ext_resource type="PackedScene" uid="uid://cfm5bsrc78qc0" path="res://prefabs/entities/wolf.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://biv2rg6st4ca5" path="res://scripts/ui/tutorial_ui.gd" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dwsciot7dck7i" path="res://sprites/UI/throw_rock_tutorial.png" id="8_vtaks"]
@@ -16,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vjig80qbt0n1" path="res://sprites/UI/'F'.png" id="14_ir15t"]
 [ext_resource type="PackedScene" uid="uid://boniatij8ieb0" path="res://prefabs/interactables/rabbit_burrow.tscn" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://juv67pfs5tdn" path="res://sprites/bg.png" id="16_ca42v"]
-[ext_resource type="PackedScene" uid="uid://cyl3a6kq8v0fd" path="res://prefabs/entities/lion.tscn" id="17_rysoc"]
+[ext_resource type="PackedScene" uid="uid://bylbr4kww0y8t" path="res://prefabs/entities/lion.tscn" id="17_rysoc"]
 
 [sub_resource type="Animation" id="Animation_dinhu"]
 length = 0.001
@@ -126,6 +129,7 @@ _data = {
 light_mode = 1
 
 [node name="Game" type="Node2D" unique_id=2082310208 groups=["Scene"]]
+script = ExtResource("1_1kice")
 
 [node name="Day & Night" type="Node" parent="." unique_id=509710048 node_paths=PackedStringArray("timer", "night_light")]
 script = ExtResource("1_ca42v")
@@ -160,6 +164,7 @@ scroll_base_offset = Vector2(0, 40)
 scroll_base_scale = Vector2(0.1, 0.1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Level/ParallaxBackground" unique_id=434067413]
+metadata/_edit_lock_ = true
 
 [node name="Bg" type="TextureRect" parent="Level/ParallaxBackground/ParallaxLayer" unique_id=2006986710]
 modulate = Color(0.81213367, 0.81213367, 0.81213367, 1)
@@ -170,12 +175,30 @@ offset_bottom = -1.6550293
 texture = ExtResource("16_ca42v")
 stretch_mode = 1
 
+[node name="Tree" parent="Level" unique_id=1302091909 instance=ExtResource("4_ssvqc")]
+position = Vector2(96, -80)
+
+[node name="Tree2" parent="Level" unique_id=1104210921 instance=ExtResource("4_ssvqc")]
+position = Vector2(576, -80)
+
 [node name="UI" parent="." unique_id=555324190 instance=ExtResource("4_u5sy4")]
 
 [node name="PlayerInfo" parent="UI" index="0" unique_id=1918069214 node_paths=PackedStringArray("player", "health_list", "time_icon")]
 player = NodePath("../../Player")
 health_list = NodePath("StatusPanel/HealthBar")
 time_icon = NodePath("TimePanel/TimeIcon")
+
+[node name="\'F\'" parent="UI/PlayerInfo/ItemPanel/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(555324190, 915016662) index="0" unique_id=1909302354]
+texture = ExtResource("6_264po")
+
+[node name="Label" parent="UI/PlayerInfo/ItemPanel/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(555324190, 915016662) index="1" unique_id=2044952563]
+custom_minimum_size = Vector2(0, 0)
+text = "Eat"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="TextureRect" parent="UI/PlayerInfo/ItemPanel/HBoxContainer" parent_id_path=PackedInt32Array(555324190, 981450910) index="3" unique_id=474241008]
+stretch_mode = 0
 
 [node name="TutorialUI" type="CanvasLayer" parent="." unique_id=484519564]
 script = ExtResource("7_0tnpc")
@@ -298,7 +321,7 @@ scale = Vector2(1, 1)
 max_health = 5
 max_hunger = 5
 current_health = 5
-current_hunger = 5
+current_hunger = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1657630754]
 position = Vector2(1, -14)
@@ -308,6 +331,24 @@ limit_bottom = 0
 
 [node name="Rabbit" parent="." unique_id=768621133 instance=ExtResource("5_iywne")]
 position = Vector2(640, -40)
+
+[node name="Rabbit2" parent="." unique_id=216515321 instance=ExtResource("5_iywne")]
+position = Vector2(808, -40)
+
+[node name="Rabbit3" parent="." unique_id=1968728718 instance=ExtResource("5_iywne")]
+position = Vector2(1096, -40)
+
+[node name="Rabbit5" parent="." unique_id=841083564 instance=ExtResource("5_iywne")]
+position = Vector2(1760, -504)
+
+[node name="Rabbit6" parent="." unique_id=1171411719 instance=ExtResource("5_iywne")]
+position = Vector2(1912, -504)
+
+[node name="Rabbit7" parent="." unique_id=1572218554 instance=ExtResource("5_iywne")]
+position = Vector2(1928, -664)
+
+[node name="Rabbit4" parent="." unique_id=1760296405 instance=ExtResource("5_iywne")]
+position = Vector2(1464, -40)
 
 [node name="Burrow Pair" type="Node" parent="." unique_id=596862060]
 
@@ -319,20 +360,32 @@ other_burrow = NodePath("../RabbitBurrow2")
 position = Vector2(888, -40)
 other_burrow = NodePath("../RabbitBurrow")
 
-[node name="Wolf" parent="." unique_id=970435845 instance=ExtResource("6_p57ef")]
-position = Vector2(1144, -40)
-
-[node name="Wolf4" parent="." unique_id=1192659068 instance=ExtResource("6_p57ef")]
-position = Vector2(1858, -883)
-
-[node name="Wolf3" parent="." unique_id=582941998 instance=ExtResource("6_p57ef")]
-position = Vector2(1943, -887)
-
 [node name="Wolf2" parent="." unique_id=912174629 instance=ExtResource("6_p57ef")]
-position = Vector2(1863, -116)
+position = Vector2(1752, -224)
+
+[node name="Wolf6" parent="." unique_id=71089252 instance=ExtResource("6_p57ef")]
+position = Vector2(2072, -360)
+
+[node name="Wolf3" parent="." unique_id=469654059 instance=ExtResource("6_p57ef")]
+position = Vector2(1280, -392)
+
+[node name="Wolf4" parent="." unique_id=1246062067 instance=ExtResource("6_p57ef")]
+position = Vector2(1584, -672)
+
+[node name="Wolf5" parent="." unique_id=626368686 instance=ExtResource("6_p57ef")]
+position = Vector2(1712, -672)
+
+[node name="Wolf12" parent="." unique_id=400597765 instance=ExtResource("6_p57ef")]
+position = Vector2(1048, -376)
+
+[node name="Wolf13" parent="." unique_id=1870808861 instance=ExtResource("6_p57ef")]
+position = Vector2(1048, -376)
+
+[node name="Wolf14" parent="." unique_id=1268836676 instance=ExtResource("6_p57ef")]
+position = Vector2(1136, -376)
 
 [node name="Lion" parent="." unique_id=956563715 instance=ExtResource("17_rysoc")]
-position = Vector2(1408, -888)
+position = Vector2(904, -384)
 
 [connection signal="changing_time_period" from="Day & Night" to="UI/PlayerInfo" method="update_time_ui"]
 

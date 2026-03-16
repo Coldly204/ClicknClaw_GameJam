@@ -33,7 +33,7 @@ func update(delta):
 
 
 func change_roam_location():
-	master.nav_agent.target_position = master.global_position +  Global.TILEMAP_SIZE * 8 * Vector2.RIGHT * randi_range(-1,1) + Vector2.UP * Global.TILEMAP_SIZE
+	master.nav_agent.target_position = master.global_position +  Global.TILEMAP_SIZE * 8 * Vector2.RIGHT * randi_range(-2,2) + Vector2.UP * Global.TILEMAP_SIZE
 
 func roam(delta):
 	if !master.nav_agent.is_target_reached():

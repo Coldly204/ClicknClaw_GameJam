@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c87a22mgu0a5w"]
+
+[ext_resource type="Texture2D" uid="uid://73eiwegyngqx" path="res://assets/tilemap/Props/Props.png" id="1_wif8e"]
+
+[node name="Tree" type="Sprite2D" unique_id=1302091909]
+z_index = -2
+scale = Vector2(2, 2)
+texture = ExtResource("1_wif8e")
+region_enabled = true
+region_rect = Rect2(48, 0, 23, 48)

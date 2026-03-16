@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://duv07bfafokts"]
+
+[ext_resource type="Script" uid="uid://dasnloe48jsos" path="res://scripts/ui/main_menu.gd" id="1_r67kn"]
+[ext_resource type="Texture2D" uid="uid://bvvl5wrf8onp3" path="res://assets/tilemap/Backgrounds/Background.png" id="2_brbbq"]
+[ext_resource type="FontFile" uid="uid://dqf5qr2qiv00q" path="res://assets/PixelMusketeer-vEXO.ttf" id="3_brbbq"]
+
+[node name="MainMenu" type="Control" unique_id=1187865957]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r67kn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1894908909]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1369624429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_brbbq")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1506348778]
+wait_time = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=341005765]
+custom_minimum_size = Vector2(420, 180)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -95.5
+offset_right = 210.0
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1000266607]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_brbbq")
+theme_override_font_sizes/font_size = 133
+text = "Fight or Flight"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1769207980]
+custom_minimum_size = Vector2(220, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+button_mask = 5
+text = "Start Game"

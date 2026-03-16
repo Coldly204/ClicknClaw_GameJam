@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://cyl3a6kq8v0fd"]
+[gd_scene format=3 uid="uid://bylbr4kww0y8t"]
 
 [ext_resource type="PackedScene" uid="uid://b3bptux15qccw" path="res://prefabs/entities/predator.tscn" id="1_40glv"]
-[ext_resource type="Shader" path="res://resources/player.gdshader" id="2_u8loa"]
+[ext_resource type="Texture2D" uid="uid://exxs74fokk7g" path="res://sprites/lion_corpse.png" id="2_2ofoc"]
+[ext_resource type="Shader" uid="uid://cuk8ctqg08jts" path="res://resources/player.gdshader" id="2_u8loa"]
 [ext_resource type="Texture2D" uid="uid://dp8kutv5a78fu" path="res://assets/Animals/lion.png" id="3_u8loa"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ofoc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mx0ae"]
 resource_local_to_scene = true
 shader = ExtResource("2_u8loa")
 shader_parameter/pivot = Vector2(0, 0)
@@ -20,12 +21,13 @@ shader_parameter/extra_rotation = 0.0
 [node name="Lion" unique_id=768621133 instance=ExtResource("1_40glv")]
 base_relationship = 0
 type = 3
-max_health = 8
+max_health = 5
 max_hunger = 3
 base_walk_speed = 1.0
+corpse_texture = ExtResource("2_2ofoc")
 
 [node name="Appearance" parent="." index="2" unique_id=1187707011]
-material = SubResource("ShaderMaterial_2ofoc")
+material = SubResource("ShaderMaterial_mx0ae")
 
 [node name="Label" parent="Appearance" index="0" unique_id=1179211352]
 visible = false

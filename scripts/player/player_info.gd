@@ -17,6 +17,8 @@ var night_texture = preload("res://sprites/UI/night.png")
 var time_counter = 0.0
 
 func update_health():
+	if !player:
+		return
 	var children = health_list.get_children()
 
 	if len(children) < player.max_health:
@@ -39,7 +41,9 @@ func update_health():
 			else:
 				heart.texture = heart_empty
 
-func update_hunger():
+func update_hunger():	
+	if !player:
+		return
 	var children = hunger_list.get_children()
 	if len(children) < player.max_hunger:
 		for i in range(player.max_hunger - len(children)):
